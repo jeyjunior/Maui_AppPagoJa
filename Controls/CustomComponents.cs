@@ -19,5 +19,19 @@ namespace Maui_PagoJa.Controls
 
             return lblTitle;
         }
+
+        public static Image GetCustomIcon(string iconPath)
+        {
+            var icon = new Image()
+            {
+                Source = iconPath,
+                HeightRequest = 10, 
+                WidthRequest = 10, 
+                Aspect = Aspect.Center, 
+                
+            };
+
+            return icon;
+        }
     }
 }

@@ -53,13 +53,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="FlyoutPageMenu.xaml">
+	  <MauiXaml Update="TabbedPageMenu.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\Menu.xaml">
+	  <MauiXaml Update="Views\Configuracao.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\Principal.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\RegistroBoleto.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
