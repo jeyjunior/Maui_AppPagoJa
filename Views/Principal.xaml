@@ -3,5 +3,19 @@
     x:Class="Maui_PagoJa.Views.Principal"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="LightGray"
-    IconImageSource="home.svg" />
+    xmlns:pagesView="clr-namespace:Maui_PagoJa.Views"
+    Title="Início"
+    BackgroundColor="#1E1E1E"
+    IconImageSource="home.svg"
+    Loaded="ContentPage_Loaded">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Margin="20"
+            x:Name="MainStackLayout"
+            Spacing="20"
+            VerticalOptions="Center">
+            <!--  Exibir os content view em sequencia  -->
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

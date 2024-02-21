@@ -6,11 +6,11 @@
     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:pages="clr-namespace:Maui_PagoJa.Views"
     android:TabbedPage.ToolbarPlacement="Bottom"
-    
     FlexLayout.AlignSelf="Center"
-    FlowDirection="MatchParent">
+    FlowDirection="MatchParent"
+    CurrentPageChanged="TabbedPage_CurrentPageChanged">
 
-    <pages:Principal />
+    <pages:Principal x:Name="btnPrincipal" />
     <pages:RegistroBoleto />
     <pages:Configuracao />
 </TabbedPage>
