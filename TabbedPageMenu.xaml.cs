@@ -2,7 +2,6 @@ using Maui_PagoJa.Controls;
 using Maui_PagoJa.Views;
 
 namespace Maui_PagoJa;
-
 public partial class TabbedPageMenu : TabbedPage
 {
 	public TabbedPageMenu()

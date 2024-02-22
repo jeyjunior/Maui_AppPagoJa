@@ -1,20 +1,36 @@
 using Maui_PagoJa.Controls;
+using Maui_PagoJa.Interfaces;
+using Maui_PagoJa.Models;
 
 namespace Maui_PagoJa.Views;
 
 public partial class Principal : ContentPage
 {
+    #region Interfaces
+    private readonly IMiniaturaBoletoControl miniaturaBoletoControl;
+    private readonly IBoletoControl boletoControl;
+    #endregion
+
+    #region Propriedades
+    private IEnumerable<MiniaturaBoletoView> poolMiniaturaBoletosView;
     private bool atualizando = false;
-	public Principal()
+    #endregion
+
+    #region Construtor
+    public Principal()
 	{
 		InitializeComponent();
+
+        miniaturaBoletoControl = App.Container.GetInstance<IMiniaturaBoletoControl>();
+        boletoControl = App.Container.GetInstance<IBoletoControl>();
+        CarregarPoolMiniaturas();
+        AddMiniaturas();
     }
-	public void AtualizarMiniaturas()
-	{
-        if (!atualizando)
-        {
-            AddMiniaturas();
-        }
+    #endregion
+    private void CarregarPoolMiniaturas()
+    {
+        // Qtd será definida nas configs?
+        poolMiniaturaBoletosView = miniaturaBoletoControl.CriarPool(30);
     }
     private async void AddMiniaturas()
     {
@@ -22,40 +38,40 @@ public partial class Principal : ContentPage
 
         await Dispatcher.DispatchAsync(() =>
         {
-            MainStackLayout.Children.Clear();
-
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Boleto de Aluguel", "10/02/2024", "850,00", MiniaturaBoletos.StatusBoleto.Pago));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Conta de Internet", "15/02/2024", "89,90", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Condomínio", "20/02/2024", "350,00", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Financiamento do Carro", "25/02/2024", "1250,00", MiniaturaBoletos.StatusBoleto.Vencido));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Fatura de Cartão de Crédito ", "28/02/2024", "950,00", MiniaturaBoletos.StatusBoleto.Pago));
-
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Conta de Luz", "05/03/2024", "180,00", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Conta de Água", "10/03/2024", "60,00", MiniaturaBoletos.StatusBoleto.Pago));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Mensalidade de Academia", "15/03/2024", "200,00", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Seguro Residencial", "20/03/2024", "300,00", MiniaturaBoletos.StatusBoleto.Vencido));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Assinatura de Streaming", "25/03/2024", "29,90", MiniaturaBoletos.StatusBoleto.Pago));
-
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Parcela do Empréstimo", "02/04/2024", "500,00", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Imposto de Renda", "05/04/2024", "450,00", MiniaturaBoletos.StatusBoleto.Pago));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Taxa de Condomínio", "10/04/2024", "250,00", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Mensalidade Escolar", "15/04/2024", "800,00", MiniaturaBoletos.StatusBoleto.Vencido));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Pagamento de Empréstimo", "20/04/2024", "600,00", MiniaturaBoletos.StatusBoleto.Pago));
-
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Aluguel de Carro", "25/04/2024", "300,00", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Compra de Supermercado", "30/04/2024", "150,00", MiniaturaBoletos.StatusBoleto.Pago));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Compra Online", "05/05/2024", "100,00", MiniaturaBoletos.StatusBoleto.EmAberto));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Assinatura de Revista", "10/05/2024", "20,00", MiniaturaBoletos.StatusBoleto.Vencido));
-            MainStackLayout.Children.Add(new MiniaturaBoletos("Recarga de Celular", "15/05/2024", "50,00", MiniaturaBoletos.StatusBoleto.Pago));
+            if (poolMiniaturaBoletosView.Count() > 0)
+            {
+                foreach (var miniatura in poolMiniaturaBoletosView)
+                {
+                    MainStackLayout.Children.Add(miniatura);
+                }
+            }
         });
 
         atualizando = false;
     }
 
+	public async void AtualizarMiniaturas()
+	{
+        atualizando = true;
+
+        await Dispatcher.DispatchAsync(() =>
+        {
+            var boletoCollection = boletoControl.ObterLista().ToArray();
+
+            if (boletoCollection != null && boletoCollection.Count() > 0)
+            {
+                for (int i = 0; i < boletoCollection.Count(); i++)
+                {
+                    var boleto = boletoCollection[i];
+                    ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
+                }
+            }
+        });
+
+        atualizando = false;
+    }
     private void ContentPage_Loaded(object sender, EventArgs e)
     {
         AtualizarMiniaturas();
     }
-
-    
 }
