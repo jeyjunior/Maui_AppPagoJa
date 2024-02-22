@@ -12,7 +12,7 @@ public partial class MiniaturaBoletoView : ContentView
 	public void DefinirInformacoes(Boleto boleto)
 	{
 		lblNome.Text = boleto.Nome;
-		lblData.Text = boleto.Data.ToShortDateString();
+		lblData.Text = boleto.DataVencimento.ToShortDateString();
 		lblPreco.Text = $"R$ {boleto.Valor}";
 
         if (boleto.Status == StatusBoleto.EmAberto)

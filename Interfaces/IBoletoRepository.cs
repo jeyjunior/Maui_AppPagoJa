@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace Maui_PagoJa.Interfaces
 {
-    public interface IBoletoControl
+    public interface IBoletoRepository
     {
-        IEnumerable<Boleto> ObterLista();
+        int SaveBoletoAsync(Boleto boleto);
+        Task<IEnumerable<Boleto>> GetBoletosAsync();
     }
 }

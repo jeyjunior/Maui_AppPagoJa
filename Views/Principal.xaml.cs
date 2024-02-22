@@ -8,7 +8,7 @@ public partial class Principal : ContentPage
 {
     #region Interfaces
     private readonly IMiniaturaBoletoControl miniaturaBoletoControl;
-    private readonly IBoletoControl boletoControl;
+    private readonly IBoletoRepository boletoRepository;
     #endregion
 
     #region Propriedades
@@ -22,7 +22,7 @@ public partial class Principal : ContentPage
 		InitializeComponent();
 
         miniaturaBoletoControl = App.Container.GetInstance<IMiniaturaBoletoControl>();
-        boletoControl = App.Container.GetInstance<IBoletoControl>();
+        boletoRepository = App.Container.GetInstance<IBoletoRepository>();
         CarregarPoolMiniaturas();
         AddMiniaturas();
     }
@@ -54,19 +54,19 @@ public partial class Principal : ContentPage
 	{
         atualizando = true;
 
-        await Dispatcher.DispatchAsync(() =>
-        {
-            var boletoCollection = boletoControl.ObterLista().ToArray();
+        //await Dispatcher.DispatchAsync(() =>
+        //{
+        //    var boletoCollection = boletoRepository.GetBoletosAsync();
 
-            if (boletoCollection != null && boletoCollection.Count() > 0)
-            {
-                for (int i = 0; i < boletoCollection.Count(); i++)
-                {
-                    var boleto = boletoCollection[i];
-                    ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
-                }
-            }
-        });
+        //    //if (boletoCollection != null && boletoCollection.Count() > 0)
+        //    //{
+        //    //    for (int i = 0; i < boletoCollection.Count(); i++)
+        //    //    {
+        //    //        var boleto = boletoCollection[i];
+        //    //        ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
+        //    //    }
+        //    //}
+        //});
 
         atualizando = false;
     }
@@ -75,3 +75,5 @@ public partial class Principal : ContentPage
         AtualizarMiniaturas();
     }
 }
+
+

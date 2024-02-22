@@ -10,12 +10,20 @@
     Loaded="ContentPage_Loaded">
 
     <ScrollView>
-        <VerticalStackLayout
-            x:Name="MainStackLayout"
-            Margin="20"
-            Spacing="20"
-            VerticalOptions="Center">
-            <!--  Exibir os content view em sequencia  -->
-        </VerticalStackLayout>
+        <StackLayout Orientation="Vertical">
+            <VerticalStackLayout>
+                <Button
+                    x:Name="btnTeste"
+                    Clicked="btnTeste_Clicked"
+                    Text="Teste" />
+            </VerticalStackLayout>
+            <VerticalStackLayout
+                x:Name="MainStackLayout"
+                Margin="20"
+                Spacing="20"
+                VerticalOptions="Center">
+                <!--  Exibir os content view em sequencia  -->
+            </VerticalStackLayout>
+        </StackLayout>
     </ScrollView>
 </ContentPage>
