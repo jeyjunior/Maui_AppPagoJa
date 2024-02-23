@@ -24,7 +24,11 @@ namespace Maui_PagoJa.Controls
 
         public async Task<IEnumerable<Boleto>> GetBoletosAsync()
         {
-            string sql = "SELECT * FROM Boleto LIMIT 100";
+            // APENAS PARA TESTES
+            var r = new Random();
+            int num = Convert.ToInt32(r.Next(0, 30));
+
+            string sql = $"SELECT * FROM Boleto LIMIT {num}";
 
             var resultado = App.asyncConnection.QueryAsync<Boleto>(sql);
 

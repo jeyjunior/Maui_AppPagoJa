@@ -11,12 +11,6 @@
 
     <ScrollView>
         <StackLayout Orientation="Vertical">
-            <VerticalStackLayout>
-                <Button
-                    x:Name="btnTeste"
-                    Clicked="btnTeste_Clicked"
-                    Text="Teste" />
-            </VerticalStackLayout>
             <VerticalStackLayout
                 x:Name="MainStackLayout"
                 Margin="20"
