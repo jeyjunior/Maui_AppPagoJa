@@ -13,7 +13,7 @@ public partial class TabbedPageMenu : TabbedPage
     {
         if(CurrentPage is Principal principal)
         {
-            principal.AtualizarMiniaturas();
+            principal.CarregarBoletos();
         }
     }
 }

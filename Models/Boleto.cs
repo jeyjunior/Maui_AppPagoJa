@@ -1,13 +1,15 @@
 ﻿using SQLite;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Maui_PagoJa.Models
 {
-    public class Boleto
+    public class Boleto 
     {
         [PrimaryKey, AutoIncrement]
         public int PK_Boleto { get; set; }
@@ -20,7 +22,19 @@ namespace Maui_PagoJa.Models
         [NotNull]
         public StatusBoleto Status { get; set; }
 
-        // ADD VALIDATION
+        public ValidationResult Validate()
+        {
+            if (string.IsNullOrEmpty(Nome))
+                return new ValidationResult("É necessário inserir um nome para o Boleto.");
+
+            if (DataVencimento == DateTime.MinValue)
+                return new ValidationResult("A data de vencimento é inválida.");
+
+            if (Valor <= 0)
+                return new ValidationResult("O valor do Boleto deve ser maior que zero.");
+
+            return ValidationResult.Success;
+        }
     }
 
     public enum StatusBoleto

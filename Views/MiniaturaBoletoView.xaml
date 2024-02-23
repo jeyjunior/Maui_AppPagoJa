@@ -3,60 +3,65 @@
     x:Class="Maui_PagoJa.Views.MiniaturaBoletoView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    BackgroundColor="#2C2C2C"
     HeightRequest="48"
     MaximumHeightRequest="48"
     MinimumHeightRequest="48"
     MinimumWidthRequest="345">
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="5" />
-            <ColumnDefinition Width="15" />
-            <ColumnDefinition Width="3*" />
-            <ColumnDefinition Width="1" />
-            <ColumnDefinition Width="2*" />
-            <ColumnDefinition Width="15" />
-        </Grid.ColumnDefinitions>
-        <BoxView
-            x:Name="bxvStatus"
-            Grid.Column="0"
-            HeightRequest="48"
-            WidthRequest="5"
-            Color="#33C200" />
 
-        <VerticalStackLayout Grid.Column="2" VerticalOptions="Center">
+    <Frame
+        Padding="0"
+        BackgroundColor="#2C2C2C"
+        CornerRadius="5">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="3*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="15" />
+            </Grid.ColumnDefinitions>
+            <BoxView
+                x:Name="bxvStatus"
+                Grid.Column="0"
+                HeightRequest="48"
+                WidthRequest="5"
+                Color="#33C200" />
+
+            <VerticalStackLayout Grid.Column="2" VerticalOptions="Center">
+                <Label
+                    x:Name="lblNome"
+                    FontFamily="Roboto-Black"
+                    FontSize="13"
+                    HorizontalOptions="Start"
+                    TextColor="#E1E1E1"
+                    VerticalOptions="End" />
+
+                <Label
+                    x:Name="lblData"
+                    FontFamily="Roboto-Regular"
+                    FontSize="11"
+                    HorizontalOptions="Start"
+                    TextColor="#9A9A9A"
+                    VerticalOptions="Start" />
+            </VerticalStackLayout>
+
+            <BoxView
+                x:Name="bxvDiv1"
+                Grid.Column="3"
+                HeightRequest="30"
+                VerticalOptions="Center"
+                WidthRequest="1"
+                Color="#444444" />
+
             <Label
-                x:Name="lblNome"
-                FontFamily="Roboto-Black"
-                FontSize="13"
-                HorizontalOptions="Start"
-                TextColor="#E1E1E1"
-                VerticalOptions="End" />
-
-            <Label
-                x:Name="lblData"
-                FontFamily="Roboto-Regular"
-                FontSize="11"
-                HorizontalOptions="Start"
-                TextColor="#9A9A9A"
-                VerticalOptions="Start" />
-        </VerticalStackLayout>
-
-        <BoxView
-            x:Name="bxvDiv1"
-            Grid.Column="3"
-            HeightRequest="30"
-            VerticalOptions="Center"
-            WidthRequest="1"
-            Color="#444444" />
-
-        <Label
-            x:Name="lblPreco"
-            Grid.Column="4"
-            FontFamily="Roboto-Bold"
-            FontSize="18"
-            HorizontalOptions="End"
-            TextColor="#FFFFFF"
-            VerticalOptions="Center" />
-    </Grid>
+                x:Name="lblPreco"
+                Grid.Column="4"
+                FontFamily="Roboto-Bold"
+                FontSize="18"
+                HorizontalOptions="End"
+                TextColor="#FFFFFF"
+                VerticalOptions="Center" />
+        </Grid>
+    </Frame>
 </ContentView>

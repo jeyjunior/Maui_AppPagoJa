@@ -32,47 +32,49 @@ public partial class Principal : ContentPage
         // Qtd será definida nas configs?
         poolMiniaturaBoletosView = miniaturaBoletoControl.CriarPool(30);
     }
-    private async void AddMiniaturas()
+    private void AddMiniaturas()
     {
-        atualizando = true;
-
-        await Dispatcher.DispatchAsync(() =>
+        if (poolMiniaturaBoletosView.Count() > 0)
         {
-            if (poolMiniaturaBoletosView.Count() > 0)
+            foreach (var miniatura in poolMiniaturaBoletosView)
             {
-                foreach (var miniatura in poolMiniaturaBoletosView)
-                {
-                    MainStackLayout.Children.Add(miniatura);
-                }
+                MainStackLayout.Children.Add(miniatura);
             }
-        });
-
-        atualizando = false;
+        }
     }
 
-	public async void AtualizarMiniaturas()
+	public void CarregarBoletos()
 	{
-        atualizando = true;
+        //atualizando = true;
 
-        //await Dispatcher.DispatchAsync(() =>
-        //{
-        //    var boletoCollection = boletoRepository.GetBoletosAsync();
+        foreach (var item in poolMiniaturaBoletosView)
+        {
+            item.IsVisible = false;
+        }
 
-        //    //if (boletoCollection != null && boletoCollection.Count() > 0)
-        //    //{
-        //    //    for (int i = 0; i < boletoCollection.Count(); i++)
-        //    //    {
-        //    //        var boleto = boletoCollection[i];
-        //    //        ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
-        //    //    }
-        //    //}
-        //});
 
-        atualizando = false;
+        var resultado = boletoRepository.GetBoletosAsync().Result;
+
+        if (resultado != null && resultado.Count() > 0)
+        {
+            var boletosCollection = resultado.ToArray();
+
+            for (int i = 0; i < boletosCollection.Count(); i++)
+            {
+                if (MainStackLayout.Children != null)
+                {
+                    var boleto = boletosCollection[i];
+                    ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
+                    ((MiniaturaBoletoView)MainStackLayout.Children[i]).IsVisible = true;
+                }
+            }
+        }
+
+        //atualizando = false;
     }
     private void ContentPage_Loaded(object sender, EventArgs e)
     {
-        AtualizarMiniaturas();
+        CarregarBoletos();
     }
 }
 
