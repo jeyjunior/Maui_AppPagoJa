@@ -5,19 +5,53 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pagesView="clr-namespace:Maui_PagoJa.Views"
     Title="Início"
-    BackgroundColor="#1E1E1E"
+    BackgroundColor="Red"
     IconImageSource="home.svg"
     Loaded="ContentPage_Loaded">
 
-    <ScrollView>
-        <StackLayout Orientation="Vertical">
-            <VerticalStackLayout
-                x:Name="MainStackLayout"
-                Margin="20"
-                Spacing="20"
-                VerticalOptions="Center">
-                <!--  Exibir os content view em sequencia  -->
-            </VerticalStackLayout>
-        </StackLayout>
-    </ScrollView>
+    <Grid RowSpacing="6">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="130" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Frame
+            Grid.Row="0"
+            Margin="0"
+            Padding="0"
+            BackgroundColor="Green"
+            CornerRadius="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+
+
+        <Frame
+            x:Name="fMain"
+            Grid.Row="1"
+            Margin="0"
+            Padding="0"
+            BackgroundColor="Blue"
+            CornerRadius="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand">
+            <ScrollView>
+                <VerticalStackLayout
+                    x:Name="vStackMain"
+                    Margin="0"
+                    Padding="0"
+                    Spacing="5" />
+            </ScrollView>
+        </Frame>
+
+
+        <Frame
+            Grid.Row="2"
+            Margin="0"
+            Padding="0"
+            BackgroundColor="Yellow"
+            CornerRadius="0"
+            HorizontalOptions="FillAndExpand"
+            VerticalOptions="FillAndExpand" />
+    </Grid>
 </ContentPage>

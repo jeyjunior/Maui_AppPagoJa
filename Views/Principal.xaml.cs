@@ -38,37 +38,37 @@ public partial class Principal : ContentPage
         {
             foreach (var miniatura in poolMiniaturaBoletosView)
             {
-                MainStackLayout.Children.Add(miniatura);
+                vStackMain.Children.Add(miniatura);
             }
         }
     }
 
 	public void CarregarBoletos()
 	{
-        //atualizando = true;
+        ////atualizando = true;
 
-        foreach (var item in poolMiniaturaBoletosView)
-        {
-            item.IsVisible = false;
-        }
+        //foreach (var item in poolMiniaturaBoletosView)
+        //{
+        //    item.IsVisible = false;
+        //}
 
 
-        var resultado = boletoRepository.GetBoletosAsync().Result;
+        //var resultado = boletoRepository.GetBoletosAsync().Result;
 
-        if (resultado != null && resultado.Count() > 0)
-        {
-            var boletosCollection = resultado.ToArray();
+        //if (resultado != null && resultado.Count() > 0)
+        //{
+        //    var boletosCollection = resultado.ToArray();
 
-            for (int i = 0; i < boletosCollection.Count(); i++)
-            {
-                if (MainStackLayout.Children != null)
-                {
-                    var boleto = boletosCollection[i];
-                    ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
-                    ((MiniaturaBoletoView)MainStackLayout.Children[i]).IsVisible = true;
-                }
-            }
-        }
+        //    for (int i = 0; i < boletosCollection.Count(); i++)
+        //    {
+        //        if (MainStackLayout.Children != null)
+        //        {
+        //            var boleto = boletosCollection[i];
+        //            ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
+        //            ((MiniaturaBoletoView)MainStackLayout.Children[i]).IsVisible = true;
+        //        }
+        //    }
+        //}
 
         //atualizando = false;
     }

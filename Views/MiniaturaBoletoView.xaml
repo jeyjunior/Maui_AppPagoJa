@@ -3,65 +3,70 @@
     x:Class="Maui_PagoJa.Views.MiniaturaBoletoView"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    HeightRequest="48"
-    MaximumHeightRequest="48"
-    MinimumHeightRequest="48"
-    MinimumWidthRequest="345">
+    HeightRequest="60"
+    MaximumHeightRequest="60"
+    MinimumHeightRequest="60">
+    <Grid
+        Margin="0"
+        Padding="0,0,0,0"
+        HorizontalOptions="FillAndExpand"
+        RowSpacing="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="6" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="66" />
+            <ColumnDefinition Width="20" />
+        </Grid.ColumnDefinitions>
 
-    <Frame
-        Padding="0"
-        BackgroundColor="#2C2C2C"
-        CornerRadius="5">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="5" />
-                <ColumnDefinition Width="15" />
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="1" />
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="15" />
-            </Grid.ColumnDefinitions>
+        <Frame Grid.Column="1" Style="{StaticResource Key=PJ_FrameStandard}">
             <BoxView
                 x:Name="bxvStatus"
-                Grid.Column="0"
-                HeightRequest="48"
-                WidthRequest="5"
-                Color="#33C200" />
-
-            <VerticalStackLayout Grid.Column="2" VerticalOptions="Center">
+                CornerRadius="60"
+                HeightRequest="6"
+                WidthRequest="6"
+                Color="Red" />
+        </Frame>
+        <VerticalStackLayout
+            Grid.Column="3"
+            Margin="0, 0, 0, 0"
+            Padding="6,0"
+            Spacing="2">
+            <Frame HeightRequest="34" Style="{StaticResource Key=PJ_FrameStandard}">
                 <Label
                     x:Name="lblNome"
-                    FontFamily="Roboto-Black"
-                    FontSize="13"
-                    HorizontalOptions="Start"
-                    TextColor="#E1E1E1"
-                    VerticalOptions="End" />
-
-                <Label
-                    x:Name="lblData"
                     FontFamily="Roboto-Regular"
-                    FontSize="11"
+                    FontSize="16"
                     HorizontalOptions="Start"
-                    TextColor="#9A9A9A"
+                    Text="Condôminio 20 20 20 20 20 20 20"
+                    TextColor="#FFFFFF"
+                    VerticalOptions="End" />
+            </Frame>
+            <Frame HeightRequest="24" Style="{StaticResource Key=PJ_FrameStandard}">
+                <Label
+                    x:Name="lblPreco"
+                    FontFamily="Roboto-Regular"
+                    FontSize="12"
+                    HorizontalOptions="Start"
+                    Text="R$ 29324523232,23"
+                    TextColor="#DCDCDC"
                     VerticalOptions="Start" />
-            </VerticalStackLayout>
 
-            <BoxView
-                x:Name="bxvDiv1"
-                Grid.Column="3"
-                HeightRequest="30"
-                VerticalOptions="Center"
-                WidthRequest="1"
-                Color="#444444" />
+            </Frame>
+        </VerticalStackLayout>
 
+        <Frame Grid.Column="5" Style="{StaticResource Key=PJ_FrameStandard}" HorizontalOptions="End">
             <Label
-                x:Name="lblPreco"
-                Grid.Column="4"
-                FontFamily="Roboto-Bold"
-                FontSize="18"
+                x:Name="lblData"
+                FontFamily="Roboto-Regular"
+                FontSize="12"
                 HorizontalOptions="End"
-                TextColor="#FFFFFF"
+                Text="88/88/8888"
+                TextColor="#DCDCDC"
                 VerticalOptions="Center" />
-        </Grid>
-    </Frame>
+
+        </Frame>
+    </Grid>
 </ContentView>
