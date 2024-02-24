@@ -31,41 +31,32 @@
         </Frame>
         <VerticalStackLayout
             Grid.Column="3"
-            Margin="0, 0, 0, 0"
+            Margin="0,0,0,0"
             Padding="6,0"
             Spacing="2">
             <Frame HeightRequest="34" Style="{StaticResource Key=PJ_FrameStandard}">
                 <Label
                     x:Name="lblNome"
-                    FontFamily="Roboto-Regular"
-                    FontSize="16"
-                    HorizontalOptions="Start"
-                    Text="Condôminio 20 20 20 20 20 20 20"
-                    TextColor="#FFFFFF"
+                    Style="{StaticResource Key=PJ_LabelWhite_Regular16}"
                     VerticalOptions="End" />
             </Frame>
             <Frame HeightRequest="24" Style="{StaticResource Key=PJ_FrameStandard}">
                 <Label
                     x:Name="lblPreco"
-                    FontFamily="Roboto-Regular"
-                    FontSize="12"
-                    HorizontalOptions="Start"
-                    Text="R$ 29324523232,23"
-                    TextColor="#DCDCDC"
+                    Style="{StaticResource Key=PJ_LabelSemiWhite_Regular12}"
                     VerticalOptions="Start" />
 
             </Frame>
         </VerticalStackLayout>
 
-        <Frame Grid.Column="5" Style="{StaticResource Key=PJ_FrameStandard}" HorizontalOptions="End">
+        <Frame
+            Grid.Column="5"
+            HorizontalOptions="End"
+            Style="{StaticResource Key=PJ_FrameStandard}">
             <Label
                 x:Name="lblData"
-                FontFamily="Roboto-Regular"
-                FontSize="12"
                 HorizontalOptions="End"
-                Text="88/88/8888"
-                TextColor="#DCDCDC"
-                VerticalOptions="Center" />
+                Style="{StaticResource Key=PJ_LabelSemiWhite_Regular12}"/>
 
         </Frame>
     </Grid>

@@ -11,5 +11,6 @@ namespace Maui_PagoJa.Interfaces
     {
         int SaveBoletoAsync(Boleto boleto);
         Task<IEnumerable<Boleto>> GetBoletosAsync();
+        void AddBoletosParaTeste();
     }
 }

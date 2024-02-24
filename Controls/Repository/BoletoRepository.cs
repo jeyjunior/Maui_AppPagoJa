@@ -40,7 +40,7 @@ namespace Maui_PagoJa.Controls
             return null;
         }
 
-        private void AddBoletosParaTeste()
+        public void AddBoletosParaTeste()
         {
             SaveBoletoAsync(new Boleto() { Nome = "Boleto de Aluguel", DataVencimento = Convert.ToDateTime("01/05/2026"), Valor = 850.00, Status = StatusBoleto.EmAberto });
             SaveBoletoAsync(new Boleto() { Nome = "Conta de Internet", DataVencimento = Convert.ToDateTime("02/05/2026"), Valor = 79.90, Status = StatusBoleto.Nenhum });
@@ -74,5 +74,6 @@ namespace Maui_PagoJa.Controls
             SaveBoletoAsync(new Boleto() { Nome = "Compra de Livros", DataVencimento = Convert.ToDateTime("29/05/2026"), Valor = 70.00, Status = StatusBoleto.Pago });
             SaveBoletoAsync(new Boleto() { Nome = "Assinatura de Jornal", DataVencimento = Convert.ToDateTime("30/05/2026"), Valor = 25.00, Status = StatusBoleto.EmAberto });
         }
+
     }
 }

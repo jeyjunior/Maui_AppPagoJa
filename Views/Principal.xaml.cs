@@ -23,6 +23,7 @@ public partial class Principal : ContentPage
 
         miniaturaBoletoControl = App.Container.GetInstance<IMiniaturaBoletoControl>();
         boletoRepository = App.Container.GetInstance<IBoletoRepository>();
+        
         CarregarPoolMiniaturas();
         AddMiniaturas();
     }
@@ -45,36 +46,47 @@ public partial class Principal : ContentPage
 
 	public void CarregarBoletos()
 	{
-        ////atualizando = true;
-
-        //foreach (var item in poolMiniaturaBoletosView)
-        //{
-        //    item.IsVisible = false;
-        //}
+        foreach (var item in poolMiniaturaBoletosView)
+        {
+            item.IsVisible = false;
+        }
 
 
-        //var resultado = boletoRepository.GetBoletosAsync().Result;
+        var resultado = boletoRepository.GetBoletosAsync().Result;
 
-        //if (resultado != null && resultado.Count() > 0)
-        //{
-        //    var boletosCollection = resultado.ToArray();
+        if (resultado != null && resultado.Count() > 0)
+        {
+            var boletosCollection = resultado.ToArray();
 
-        //    for (int i = 0; i < boletosCollection.Count(); i++)
-        //    {
-        //        if (MainStackLayout.Children != null)
-        //        {
-        //            var boleto = boletosCollection[i];
-        //            ((MiniaturaBoletoView)MainStackLayout.Children[i]).DefinirInformacoes(boleto);
-        //            ((MiniaturaBoletoView)MainStackLayout.Children[i]).IsVisible = true;
-        //        }
-        //    }
-        //}
-
-        //atualizando = false;
+            for (int i = 0; i < boletosCollection.Count(); i++)
+            {
+                if (vStackMain.Children != null)
+                {
+                    var boleto = boletosCollection[i];
+                    ((MiniaturaBoletoView)vStackMain.Children[i]).DefinirInformacoes(boleto);
+                    ((MiniaturaBoletoView)vStackMain.Children[i]).IsVisible = true;
+                }
+            }
+        }
     }
     private void ContentPage_Loaded(object sender, EventArgs e)
     {
         CarregarBoletos();
+    }
+
+    private void GerarBoletosTeste_Clicked(object sender, EventArgs e)
+    {
+        boletoRepository.AddBoletosParaTeste();
+    }
+
+    private void ConsultarBoletos_Clicked(object sender, EventArgs e)
+    {
+        var boletos = boletoRepository.GetBoletosAsync();
+
+        if(boletos.Result != null)
+        {
+
+        }
     }
 }
 

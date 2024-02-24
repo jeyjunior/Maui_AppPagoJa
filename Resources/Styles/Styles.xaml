@@ -13,6 +13,99 @@
     </Style>
 
 
+
+    <!--  PJ-Colors  -->
+    <Color x:Key="Preto">#000000</Color>
+    <Color x:Key="Branco">#FFFFFF</Color>
+
+    <Color x:Key="Cinza_01">#D9D9D9</Color>
+    <Color x:Key="Cinza_02">#D1D1D1</Color>
+    <Color x:Key="Cinza_03">#5B5B5B</Color>
+    <Color x:Key="Cinza_04">#303030</Color>
+    <Color x:Key="Cinza_05">#292929</Color>
+    <Color x:Key="Cinza_06">#232323</Color>
+    <Color x:Key="Cinza_07">#1E1E1E</Color>
+    <Color x:Key="Cinza_08">#181818</Color>
+
+    <Color x:Key="Vermelho-01">#FF0000</Color>
+    <Color x:Key="Amarelo-01">#FAFF00</Color>
+    <Color x:Key="Verde-01">#14FF00</Color>
+    <Color x:Key="Azul-01">#60CDFF</Color>
+    <Color x:Key="Azul-02">#2D5EEF</Color>
+
+    <Color x:Key="Lilas-01">#9EA2FF</Color>
+
+    <!--  Content Page  -->
+    <Style x:Key="PJ_ContentPage" TargetType="ContentPage">
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Cinza_06}" />
+    </Style>
+
+    <!--  PJ-Labels  -->
+
+    <Style x:Key="PJ_LabelStandardFormat" TargetType="Label">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="HorizontalOptions" Value="Start" />
+        <Setter Property="VerticalOptions" Value="Center" />
+    </Style>
+
+    <Style
+        x:Key="PJ_LabelBold18"
+        BasedOn="{StaticResource PJ_LabelStandardFormat}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Bold" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="TextColor" Value="{StaticResource Branco}" />
+    </Style>
+
+    <Style
+        x:Key="PJ_LabelWhite_Bold16"
+        BasedOn="{StaticResource PJ_LabelStandardFormat}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Bold" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource Branco}" />
+    </Style>
+
+    <Style
+        x:Key="PJ_LabelWhite_Regular16"
+        BasedOn="{StaticResource PJ_LabelStandardFormat}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Regular" />
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="TextColor" Value="{StaticResource Branco}" />
+    </Style>
+
+    <Style
+        x:Key="PJ_LabelSemiWhite_Regular14"
+        BasedOn="{StaticResource PJ_LabelStandardFormat}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Regular" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="{StaticResource Cinza_02}" />
+    </Style>
+
+    <Style
+        x:Key="PJ_LabelSemiWhite_Regular12"
+        BasedOn="{StaticResource PJ_LabelStandardFormat}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Regular" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="{StaticResource Cinza_02}" />
+    </Style>
+
+    <Style
+        x:Key="PJ_LabelSemiWhite_Light12"
+        BasedOn="{StaticResource PJ_LabelStandardFormat}"
+        TargetType="Label">
+        <Setter Property="FontFamily" Value="Roboto-Light" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="TextColor" Value="{StaticResource Cinza_02}" />
+    </Style>
+
+
+
     <!--  .Net  -->
     <Style TargetType="ActivityIndicator">
         <Setter Property="Color" Value="{AppThemeBinding Light={StaticResource Primary}, Dark={StaticResource White}}" />
