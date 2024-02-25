@@ -63,6 +63,9 @@
 	  <MauiXaml Update="Views\Configuracao.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\FiltroPrincipalBoletosPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\MiniaturaBoletoView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

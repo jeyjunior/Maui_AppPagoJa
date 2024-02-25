@@ -14,6 +14,8 @@ public partial class Principal : ContentPage
     #region Propriedades
     private IEnumerable<MiniaturaBoletoView> poolMiniaturaBoletosView;
     private bool atualizando = false;
+
+    private FiltroPrincipalBoletosPopup filtroPrincipalpopup;
     #endregion
 
     #region Construtor
@@ -23,7 +25,8 @@ public partial class Principal : ContentPage
 
         miniaturaBoletoControl = App.Container.GetInstance<IMiniaturaBoletoControl>();
         boletoRepository = App.Container.GetInstance<IBoletoRepository>();
-        
+        filtroPrincipalpopup = new FiltroPrincipalBoletosPopup();
+
         CarregarPoolMiniaturas();
         AddMiniaturas();
     }
@@ -91,9 +94,7 @@ public partial class Principal : ContentPage
 
     private void btnFilter_Clicked(object sender, EventArgs e)
     {
-        //var filtro = new Filtro();
-        
-        //this.Navigation.PushModalAsync(filtro);
+        this.Navigation.PushModalAsync(filtroPrincipalpopup);
     }
 }
 
