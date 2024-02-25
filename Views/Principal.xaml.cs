@@ -88,6 +88,13 @@ public partial class Principal : ContentPage
 
         }
     }
+
+    private void btnFilter_Clicked(object sender, EventArgs e)
+    {
+        //var filtro = new Filtro();
+        
+        //this.Navigation.PushModalAsync(filtro);
+    }
 }
 
 

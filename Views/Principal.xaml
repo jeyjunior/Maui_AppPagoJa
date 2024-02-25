@@ -34,13 +34,15 @@
                     <Button
                         x:Name="btnFilter"
                         Grid.Column="1"
-                        ImageSource="filter_primary.svg" Clicked="GerarBoletosTeste_Clicked"
+                        Clicked="btnFilter_Clicked"
+                        ImageSource="filter_primary.svg"
                         Style="{StaticResource Key=PJ_ButtonPrimary}"
                         Text="Filtrar" />
                     <Button
                         x:Name="btnSearch"
                         Grid.Column="3"
-                        ImageSource="search_primary.svg" Clicked="ConsultarBoletos_Clicked"
+                        Clicked="ConsultarBoletos_Clicked"
+                        ImageSource="search_primary.svg"
                         Style="{StaticResource Key=PJ_ButtonPrimary}"
                         Text="Pesquisar" />
                 </Grid>
