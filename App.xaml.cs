@@ -16,11 +16,11 @@ namespace Maui_PagoJa
 
             Container = new Container();
             RegisterDependencies();
-
             CreateDataBase();
 
             MainPage = new TabbedPageMenu();
         }
+
 
         private void RegisterDependencies()
         {

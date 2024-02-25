@@ -15,24 +15,42 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
+        <Frame Grid.Row="0" Style="{StaticResource Key=PJ_FrameStandard}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25" />
+                    <RowDefinition Height="60" />
+                    <RowDefinition Height="35" />
+                </Grid.RowDefinitions>
 
-        <Frame
-            Grid.Row="0"
-            BackgroundColor="Green"
-            HorizontalOptions="FillAndExpand"
-            Style="{StaticResource Key=PJ_FrameStandard}"
-            VerticalOptions="FillAndExpand">
-            <VerticalStackLayout>
-                <Button
-                    x:Name="GerarBoletosTeste"
-                    Clicked="GerarBoletosTeste_Clicked"
-                    Text="Gerar Boletos" />
-
-                <Button
-                    x:Name="ConsultarBoletos"
-                    Clicked="ConsultarBoletos_Clicked"
-                    Text="Consultas Boletos" />
-            </VerticalStackLayout>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="20" />
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="btnFilter"
+                        Grid.Column="1"
+                        ImageSource="filter_primary.svg"
+                        Style="{StaticResource Key=PJ_ButtonPrimary}"
+                        Text="Filtrar" />
+                    <Button
+                        x:Name="btnSearch"
+                        Grid.Column="3"
+                        ImageSource="search_primary.svg"
+                        Style="{StaticResource Key=PJ_ButtonPrimary}"
+                        Text="Pesquisar" />
+                </Grid>
+                <Label
+                    Grid.Row="2"
+                    Padding="20,0,0,0"
+                    Style="{StaticResource Key=PJ_LabelWhite_Bold16}"
+                    Text="Fevereiro / 2024"
+                    VerticalOptions="End" />
+            </Grid>
         </Frame>
 
 
@@ -43,6 +61,7 @@
             HorizontalOptions="FillAndExpand"
             Style="{StaticResource Key=PJ_FrameStandard}"
             VerticalOptions="FillAndExpand">
+
             <ScrollView>
                 <VerticalStackLayout
                     x:Name="vStackMain"

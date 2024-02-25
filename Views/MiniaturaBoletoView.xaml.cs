@@ -1,4 +1,5 @@
 using Maui_PagoJa.Models;
+using Microsoft.Maui.Controls;
 
 namespace Maui_PagoJa.Views;
 
@@ -21,15 +22,15 @@ public partial class MiniaturaBoletoView : ContentView
         }
         else if (boleto.Status == StatusBoleto.Pago)
         {
-            bxvStatus.Color = Color.FromArgb("42FF00");
+            bxvStatus.Color = Color.FromArgb("14FF00");
         }
         else if (boleto.Status == StatusBoleto.Vencido)
         {
-            bxvStatus.Color = Color.FromArgb("FF0000");
+            bxvStatus.Color =  Color.FromArgb("FF0000");
         }
         else
         {
-            bxvStatus.Color = Color.FromArgb("676767");
+            bxvStatus.Color = Color.FromArgb("5B5B5B");
         }
     }
 }

@@ -22,6 +22,7 @@ namespace Maui_PagoJa.Models
         [NotNull]
         public StatusBoleto Status { get; set; }
 
+        public bool IsValid => Validate() == null;
         public ValidationResult Validate()
         {
             if (string.IsNullOrEmpty(Nome))
@@ -30,7 +31,7 @@ namespace Maui_PagoJa.Models
             if (DataVencimento == DateTime.MinValue)
                 return new ValidationResult("A data de vencimento é inválida.");
 
-            if (Valor <= 0)
+            if (Valor < 0)
                 return new ValidationResult("O valor do Boleto deve ser maior que zero.");
 
             return ValidationResult.Success;

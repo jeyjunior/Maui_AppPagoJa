@@ -13,11 +13,12 @@ namespace Maui_PagoJa.Controls
     {
         public MiniaturaBoletoView Criar(Boleto boleto)
         {
+            if (!boleto.IsValid)
+                return null;
+
             var miniaturaBoleto = new MiniaturaBoletoView();
             miniaturaBoleto.DefinirInformacoes(boleto);
             miniaturaBoleto.IsVisible = true;
-
-            // Add Validation
 
             return miniaturaBoleto;
         }
@@ -29,12 +30,12 @@ namespace Maui_PagoJa.Controls
             for (int i = 0; i < quantidade; i++)
             {
                 var miniatura = Criar(new Boleto { Nome = "Boleto", DataVencimento = DateTime.Today, Valor = 00.00, Status = StatusBoleto.Nenhum });
-                miniaturaBoletos.Add(miniatura);
+
+                if(miniatura != null)
+                    miniaturaBoletos.Add(miniatura);
             }
 
             return miniaturaBoletos;
         }
-
-        
     }
 }
