@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pagesView="clr-namespace:Maui_PagoJa.Views"
     Title="Início"
-    IconImageSource="home.svg"
+    IconImageSource="home_white.svg"
     Loaded="ContentPage_Loaded"
     Style="{StaticResource Key=PJ_ContentPage}">
 
@@ -35,14 +35,14 @@
                         x:Name="btnFilter"
                         Grid.Column="1"
                         Clicked="btnFilter_Clicked"
-                        ImageSource="filter_primary.svg"
+                        ImageSource="options_blue.svg"
                         Style="{StaticResource Key=PJ_ButtonPrimary}"
                         Text="Filtrar" />
                     <Button
                         x:Name="btnSearch"
                         Grid.Column="3"
                         Clicked="ConsultarBoletos_Clicked"
-                        ImageSource="search_primary.svg"
+                        ImageSource="search_blue.svg"
                         Style="{StaticResource Key=PJ_ButtonPrimary}"
                         Text="Pesquisar" />
                 </Grid>
