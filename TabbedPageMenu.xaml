@@ -8,7 +8,9 @@
     android:TabbedPage.ToolbarPlacement="Bottom"
     CurrentPageChanged="TabbedPage_CurrentPageChanged"
     FlexLayout.AlignSelf="Center"
-    FlowDirection="MatchParent">
+    FlowDirection="MatchParent"
+    SelectedTabColor="{StaticResource Primary}"
+    UnselectedTabColor="{StaticResource White}">
 
     <pages:Principal x:Name="btnPrincipal" />
     <pages:RegistroBoleto />

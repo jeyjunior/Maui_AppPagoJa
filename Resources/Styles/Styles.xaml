@@ -2,35 +2,10 @@
 <?xaml-comp compile="true" ?>
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <!--  App PagoJa  -->
-
-
-
-    <!--  PJ-Colors  -->
-    <Color x:Key="Preto">#000000</Color>
-    <Color x:Key="Branco">#FFFFFF</Color>
-
-    <Color x:Key="Cinza_01">#D9D9D9</Color>
-    <Color x:Key="Cinza_02">#D1D1D1</Color>
-    <Color x:Key="Cinza_03">#5B5B5B</Color>
-    <Color x:Key="Cinza_04">#303030</Color>
-    <Color x:Key="Cinza_05">#383838</Color>
-    <Color x:Key="Cinza_06">#292929</Color>
-    <Color x:Key="Cinza_07">#232323</Color>
-    <Color x:Key="Cinza_08">#1E1E1E</Color>
-    <Color x:Key="Cinza_09">#181818</Color>
-
-    <Color x:Key="Vermelho_01">#FF0000</Color>
-    <Color x:Key="Amarelo_01">#FAFF00</Color>
-    <Color x:Key="Verde_01">#14FF00</Color>
-    <Color x:Key="Azul_01">#60CDFF</Color>
-    <Color x:Key="Azul_02">#2D5EEF</Color>
-    <Color x:Key="Lilas_01">#9EA2FF</Color>
-
     <!--  Content Page  -->
     <Style x:Key="PJ_ContentPage" TargetType="ContentPage">
         <Setter Property="Padding" Value="0" />
-        <Setter Property="BackgroundColor" Value="{StaticResource Cinza_07}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray700}" />
     </Style>
 
     <!--  Frame  -->
@@ -53,15 +28,15 @@
         <Setter Property="Shadow">
             <Setter.Value>
                 <Shadow
-                    Brush="{StaticResource Preto}"
+                    Brush="{StaticResource Black}"
                     Opacity="0.2"
                     Radius="10"
                     Offset="0,3" />
             </Setter.Value>
         </Setter>
-        <Setter Property="BorderColor" Value="{StaticResource Cinza_05}" />
-        <Setter Property="BackgroundColor" Value="{StaticResource Cinza_04}" />
-        <Setter Property="TextColor" Value="{StaticResource Azul_01}" />
+        <Setter Property="BorderColor" Value="{StaticResource Gray500}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray400}" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
     </Style>
 
     <!--  PJ-Labels  -->
@@ -79,7 +54,7 @@
         TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto-Bold" />
         <Setter Property="FontSize" Value="18" />
-        <Setter Property="TextColor" Value="{StaticResource Branco}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
     </Style>
 
     <Style
@@ -88,7 +63,7 @@
         TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto-Bold" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="TextColor" Value="{StaticResource Branco}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
     </Style>
 
     <Style
@@ -97,7 +72,7 @@
         TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto-Regular" />
         <Setter Property="FontSize" Value="16" />
-        <Setter Property="TextColor" Value="{StaticResource Branco}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
     </Style>
 
     <Style
@@ -106,7 +81,7 @@
         TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto-Regular" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="TextColor" Value="{StaticResource Cinza_02}" />
+        <Setter Property="TextColor" Value="{StaticResource Gray200}" />
     </Style>
 
     <Style
@@ -115,7 +90,7 @@
         TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto-Regular" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="TextColor" Value="{StaticResource Cinza_02}" />
+        <Setter Property="TextColor" Value="{StaticResource Gray200}" />
     </Style>
 
     <Style
@@ -124,7 +99,7 @@
         TargetType="Label">
         <Setter Property="FontFamily" Value="Roboto-Light" />
         <Setter Property="FontSize" Value="12" />
-        <Setter Property="TextColor" Value="{StaticResource Cinza_02}" />
+        <Setter Property="TextColor" Value="{StaticResource Gray200}" />
     </Style>
 
 
