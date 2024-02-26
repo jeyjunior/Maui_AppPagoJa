@@ -23,28 +23,31 @@
                     <RowDefinition Height="35" />
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="1">
+                <Grid Grid.Row="1" ColumnSpacing="20">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="20" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition Width="30" />
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="20" />
                     </Grid.ColumnDefinitions>
                     <Button
                         x:Name="btnFilter"
                         Grid.Column="1"
                         Clicked="btnFilter_Clicked"
+                        HeightRequest="40"
                         ImageSource="options_blue.svg"
                         Style="{StaticResource Key=PJ_ButtonPrimary}"
-                        Text="Filtrar" />
+                        Text=""
+                        WidthRequest="40" />
                     <Button
                         x:Name="btnSearch"
-                        Grid.Column="3"
+                        Grid.Column="2"
                         Clicked="ConsultarBoletos_Clicked"
+                        HorizontalOptions="FillAndExpand"
                         ImageSource="search_blue.svg"
                         Style="{StaticResource Key=PJ_ButtonPrimary}"
-                        Text="Pesquisar" />
+                        Text="Pesquisar"
+                        VerticalOptions="FillAndExpand" />
                 </Grid>
                 <Label
                     Grid.Row="2"
