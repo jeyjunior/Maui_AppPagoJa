@@ -18,7 +18,7 @@
     </Style>
 
     <!--  Button  -->
-    <Style x:Key="PJ_ButtonPrimary" TargetType="Button">
+    <Style x:Key="PJ_ButtonPrimaryStandard" TargetType="Button">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
         <Setter Property="MaximumHeightRequest" Value="40" />
@@ -36,6 +36,17 @@
         </Setter>
         <Setter Property="BorderColor" Value="{StaticResource Gray500}" />
         <Setter Property="BackgroundColor" Value="{StaticResource Gray400}" />
+        <Setter Property="TextColor" Value="{StaticResource Primary}" />
+    </Style>
+
+    <Style x:Key="PJ_ButtonPrimarySmall" TargetType="Button">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="MaximumHeightRequest" Value="40" />
+        <Setter Property="MinimumHeightRequest" Value="40" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="BorderWidth" Value="0" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray700}" />
         <Setter Property="TextColor" Value="{StaticResource Primary}" />
     </Style>
 

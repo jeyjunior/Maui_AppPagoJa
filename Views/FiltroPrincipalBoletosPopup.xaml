@@ -46,14 +46,14 @@
                         x:Name="GeradorBoletosTeste"
                         Margin="0"
                         HeightRequest="50"
-                        Style="{StaticResource Key=PJ_ButtonPrimary}"
+                        Style="{StaticResource Key=PJ_ButtonPrimaryStandard}"
                         Text="Gerar Boletos"
                         WidthRequest="120" />
                     <Button
                         Margin="0"
                         HeightRequest="50"
                         ImageSource="save_blue"
-                        Style="{StaticResource Key=PJ_ButtonPrimary}"
+                        Style="{StaticResource Key=PJ_ButtonPrimaryStandard}"
                         Text="Salvar"
                         WidthRequest="120" />
                 </StackLayout>

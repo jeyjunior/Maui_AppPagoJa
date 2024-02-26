@@ -1,6 +1,8 @@
+using CommunityToolkit.Maui.Views;
 using Maui_PagoJa.Controls;
 using Maui_PagoJa.Interfaces;
 using Maui_PagoJa.Models;
+using Maui_PagoJa.Views.Popups;
 
 namespace Maui_PagoJa.Views;
 
@@ -77,24 +79,10 @@ public partial class Principal : ContentPage
         CarregarBoletos();
     }
 
-    private void GerarBoletosTeste_Clicked(object sender, EventArgs e)
+    private void btnOptions_Clicked(object sender, EventArgs e)
     {
-        boletoRepository.AddBoletosParaTeste();
-    }
-
-    private void ConsultarBoletos_Clicked(object sender, EventArgs e)
-    {
-        var boletos = boletoRepository.GetBoletosAsync();
-
-        if(boletos.Result != null)
-        {
-
-        }
-    }
-
-    private void btnFilter_Clicked(object sender, EventArgs e)
-    {
-        this.Navigation.PushModalAsync(filtroPrincipalpopup);
+        var popup = new PopupOpcoesPrincipal();
+        this.ShowPopup(popup);
     }
 }
 

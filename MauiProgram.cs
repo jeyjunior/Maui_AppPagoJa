@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
 
 namespace Maui_PagoJa
 {
@@ -9,11 +10,11 @@ namespace Maui_PagoJa
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                   
                     fonts.AddFont("Roboto-Black.ttf", "Roboto-Black");
                     fonts.AddFont("Roboto-Bold.ttf", "Roboto-Bold");
                     fonts.AddFont("Roboto-Italic.ttf", "Roboto-Italic");
@@ -21,11 +22,9 @@ namespace Maui_PagoJa
                     fonts.AddFont("Roboto-Medium.ttf", "Roboto-Medium");
                     fonts.AddFont("Roboto-Regular.ttf", "Roboto-Regular");
                 });
-
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
-
             return builder.Build();
         }
     }

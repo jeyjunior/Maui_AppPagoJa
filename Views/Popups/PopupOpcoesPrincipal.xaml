@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<toolkit:Popup
+    x:Class="Maui_PagoJa.Views.Popups.PopupOpcoesPrincipal"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Color="Transparent"
+    xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit">
+    <Frame
+     Margin="0"
+     BackgroundColor="{StaticResource Gray600}"
+     BorderColor="{StaticResource Gray400}"
+     CornerRadius="10"
+     HorizontalOptions="FillAndExpand"
+     VerticalOptions="FillAndExpand">
+        <StackLayout
+         Margin="0"
+         Padding="0"
+         Spacing="5">
+            <Label
+             Margin="10,0,0,0"
+             HorizontalOptions="Start"
+             Style="{StaticResource Key=PJ_LabelWhite_Bold16}"
+             Text="Ordenar por" />
+
+            <StackLayout
+             Margin="0"
+             Padding="0"
+             HorizontalOptions="End"
+             Orientation="Horizontal"
+             Spacing="6">
+                <Button
+                 x:Name="GeradorBoletosTeste"
+                 Margin="0"
+                 HeightRequest="50"
+                 Style="{StaticResource Key=PJ_ButtonPrimary}"
+                 Text="Gerar Boletos"
+                 WidthRequest="120" />
+                <Button
+                 Margin="0"
+                 HeightRequest="50"
+                 ImageSource="save_blue"
+                 Style="{StaticResource Key=PJ_ButtonPrimary}"
+                 Text="Salvar"
+                 WidthRequest="120" />
+            </StackLayout>
+        </StackLayout>
+    </Frame>
+
+</toolkit:Popup>

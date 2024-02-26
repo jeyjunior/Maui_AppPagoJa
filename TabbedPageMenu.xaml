@@ -6,6 +6,8 @@
     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
     xmlns:pages="clr-namespace:Maui_PagoJa.Views"
     android:TabbedPage.ToolbarPlacement="Bottom"
+    BackgroundColor="{StaticResource Gray950}"
+    BarBackgroundColor="{StaticResource Gray950}"
     CurrentPageChanged="TabbedPage_CurrentPageChanged"
     FlexLayout.AlignSelf="Center"
     FlowDirection="MatchParent"

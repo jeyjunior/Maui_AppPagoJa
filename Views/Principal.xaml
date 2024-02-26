@@ -9,60 +9,54 @@
     Loaded="ContentPage_Loaded"
     Style="{StaticResource Key=PJ_ContentPage}">
 
-    <Grid RowSpacing="6">
+    <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="130" />
+            <RowDefinition Height="70" />
             <RowDefinition Height="*" />
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
-        <Frame Grid.Row="0" Style="{StaticResource Key=PJ_FrameStandard}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25" />
-                    <RowDefinition Height="60" />
-                    <RowDefinition Height="35" />
-                </Grid.RowDefinitions>
 
-                <Grid Grid.Row="1" ColumnSpacing="20">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10" />
-                        <ColumnDefinition Width="30" />
-                        <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="10" />
-                    </Grid.ColumnDefinitions>
-                    <Button
-                        x:Name="btnFilter"
-                        Grid.Column="1"
-                        Clicked="btnFilter_Clicked"
-                        HeightRequest="40"
-                        ImageSource="options_blue.svg"
-                        Style="{StaticResource Key=PJ_ButtonPrimary}"
-                        Text=""
-                        WidthRequest="40" />
-                    <Button
-                        x:Name="btnSearch"
-                        Grid.Column="2"
-                        Clicked="ConsultarBoletos_Clicked"
-                        HorizontalOptions="FillAndExpand"
-                        ImageSource="search_blue.svg"
-                        Style="{StaticResource Key=PJ_ButtonPrimary}"
-                        Text="Pesquisar"
-                        VerticalOptions="FillAndExpand" />
-                </Grid>
-                <Label
-                    Grid.Row="2"
-                    Padding="20,0,0,0"
-                    Style="{StaticResource Key=PJ_LabelWhite_Bold16}"
-                    Text="Fevereiro / 2024"
-                    VerticalOptions="End" />
-            </Grid>
-        </Frame>
+        <Grid
+            Grid.Row="0"
+            Margin="20,0,20,0"
+            Padding="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="50" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Column="0"
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource PJ_LabelWhite_Bold16}"
+                Text="Fevereiro / 2024"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="btnOptions"
+                Grid.Column="1"
+                HeightRequest="40"
+                HorizontalOptions="Center" Clicked="btnOptions_Clicked"
+                ImageSource="options_blue.svg"
+                Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
+                VerticalOptions="Center"
+                WidthRequest="40" />
+            <Button
+                x:Name="btnSearch"
+                Grid.Column="2"
+                HeightRequest="40"
+                HorizontalOptions="Center"
+                ImageSource="search_blue.svg"
+                Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
+                VerticalOptions="Center"
+                WidthRequest="40" />
+        </Grid>
+
 
 
         <Frame
             x:Name="fMain"
             Grid.Row="1"
-            BackgroundColor="{StaticResource Cinza_05}"
+            BackgroundColor="{StaticResource Gray600}"
             HorizontalOptions="FillAndExpand"
             Style="{StaticResource Key=PJ_FrameStandard}"
             VerticalOptions="FillAndExpand">
@@ -79,7 +73,7 @@
 
         <Frame
             Grid.Row="2"
-            BackgroundColor="Chocolate"
+            BackgroundColor="{StaticResource Gray700}"
             HorizontalOptions="FillAndExpand"
             Style="{StaticResource Key=PJ_FrameStandard}"
             VerticalOptions="FillAndExpand" />
