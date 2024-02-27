@@ -12,9 +12,11 @@
     <Style x:Key="PJ_FrameStandard" TargetType="Frame">
         <Setter Property="Margin" Value="0" />
         <Setter Property="Padding" Value="0" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
         <Setter Property="CornerRadius" Value="0" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
-        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray600}" />
+        <Setter Property="BorderColor" Value="{StaticResource Gray400}" />
     </Style>
 
     <!--  Button  -->
@@ -114,6 +116,18 @@
         <Setter Property="FontFamily" Value="Roboto-Light" />
         <Setter Property="FontSize" Value="12" />
         <Setter Property="TextColor" Value="{StaticResource Gray200}" />
+    </Style>
+
+
+
+    <!--  Picker  -->
+    <Style x:Key="PJ_PickerStandard" TargetType="Picker">
+        <Setter Property="Margin" Value="10,0,10,0" />
+        <Setter Property="FontFamily" Value="Roboto-Regular" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TitleColor" Value="{StaticResource Gray100}" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray600}" />
+        <Setter Property="TextColor" Value="{StaticResource White}" />
     </Style>
 
 

@@ -6,16 +6,7 @@
     xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
     Opened="Popup_Opened"
     Color="Transparent">
-    <Frame
-        Margin="0"
-        Padding="0"
-        BackgroundColor="{StaticResource Gray600}"
-        BorderColor="{StaticResource Gray400}"
-        CornerRadius="10"
-        HorizontalOptions="FillAndExpand"
-        VerticalOptions="FillAndExpand"
-        WidthRequest="300">
-
+    <Frame Style="{StaticResource PJ_FrameStandard}" WidthRequest="300" CornerRadius="10">
         <Grid
             Margin="10"
             Padding="0"
@@ -30,27 +21,20 @@
                 Margin="10,0,0,0"
                 HorizontalOptions="FillAndExpand"
                 Style="{StaticResource Key=PJ_LabelWhite_Bold16}"
-                Text="Ordenar por:" />
+                Text="Ordenar por" />
             <Picker
                 x:Name="pckOrdenacao"
                 Grid.Row="1"
-                Margin="10,0,10,0"
-                BackgroundColor="{StaticResource Gray600}"
-                FontFamily="Roboto-Regular"
-                FontSize="12"
                 HorizontalOptions="FillAndExpand"
-                TextColor="{StaticResource Gray100}"
-                TitleColor="{StaticResource White}"
+                Style="{StaticResource Key=PJ_PickerStandard}"
                 VerticalOptions="FillAndExpand">
 
                 <Picker.ItemsSource />
             </Picker>
             <Button
                 Grid.Row="2"
-                Margin="0"
                 BackgroundColor="{StaticResource Gray600}"
                 HorizontalOptions="End"
-                ImageSource="save_blue"
                 Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
                 Text="Salvar"
                 WidthRequest="120" />
