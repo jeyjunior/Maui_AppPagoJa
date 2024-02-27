@@ -16,8 +16,6 @@ public partial class Principal : ContentPage
     #region Propriedades
     private IEnumerable<MiniaturaBoletoView> poolMiniaturaBoletosView;
     private bool atualizando = false;
-
-    private FiltroPrincipalBoletosPopup filtroPrincipalpopup;
     #endregion
 
     #region Construtor
@@ -27,7 +25,6 @@ public partial class Principal : ContentPage
 
         miniaturaBoletoControl = App.Container.GetInstance<IMiniaturaBoletoControl>();
         boletoRepository = App.Container.GetInstance<IBoletoRepository>();
-        filtroPrincipalpopup = new FiltroPrincipalBoletosPopup();
 
         CarregarPoolMiniaturas();
         AddMiniaturas();

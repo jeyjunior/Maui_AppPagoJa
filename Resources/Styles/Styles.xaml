@@ -45,6 +45,9 @@
         <Setter Property="MaximumHeightRequest" Value="40" />
         <Setter Property="MinimumHeightRequest" Value="40" />
         <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="WidthRequest" Value="40" />
+        <Setter Property="MaximumWidthRequest" Value="40" />
+        <Setter Property="MinimumWidthRequest" Value="40" />
         <Setter Property="BorderWidth" Value="0" />
         <Setter Property="BackgroundColor" Value="{StaticResource Gray700}" />
         <Setter Property="TextColor" Value="{StaticResource Primary}" />
@@ -295,7 +298,7 @@
 
     <Style TargetType="Picker">
         <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
-        <Setter Property="TitleColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray200}}" />
+        <Setter Property="TitleColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource Gray100}}" />
         <Setter Property="BackgroundColor" Value="Transparent" />
         <Setter Property="FontFamily" Value="OpenSansRegular" />
         <Setter Property="FontSize" Value="14" />

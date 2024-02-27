@@ -34,21 +34,18 @@
             <Button
                 x:Name="btnOptions"
                 Grid.Column="1"
-                HeightRequest="40"
-                HorizontalOptions="Center" Clicked="btnOptions_Clicked"
+                Clicked="btnOptions_Clicked"
+                HorizontalOptions="Center"
                 ImageSource="options_blue.svg"
                 Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
-                VerticalOptions="Center"
-                WidthRequest="40" />
+                VerticalOptions="Center" />
             <Button
                 x:Name="btnSearch"
                 Grid.Column="2"
-                HeightRequest="40"
                 HorizontalOptions="Center"
                 ImageSource="search_blue.svg"
                 Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
-                VerticalOptions="Center"
-                WidthRequest="40" />
+                VerticalOptions="Center" />
         </Grid>
 
 
