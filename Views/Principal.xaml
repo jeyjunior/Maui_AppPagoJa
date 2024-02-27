@@ -5,26 +5,23 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:pagesView="clr-namespace:Maui_PagoJa.Views"
     Title="Início"
+    BackgroundColor="{StaticResource Gray950}"
     IconImageSource="home_white.svg"
     Loaded="ContentPage_Loaded"
     Style="{StaticResource Key=PJ_ContentPage}">
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="70" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="60" />
-        </Grid.RowDefinitions>
+    <Grid
+        Margin="0"
+        Padding="0"
+        RowDefinitions="70, *, 60">
 
+        <!--  Cabeçalho, conteúdo para filtros e pesquisas  -->
         <Grid
             Grid.Row="0"
             Margin="20,0,20,0"
-            Padding="0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="50" />
-                <ColumnDefinition Width="50" />
-            </Grid.ColumnDefinitions>
+            Padding="0"
+            ColumnDefinitions="*, 50, 50">
+
             <Label
                 Grid.Column="0"
                 HorizontalOptions="StartAndExpand"
@@ -48,15 +45,13 @@
                 VerticalOptions="Center" />
         </Grid>
 
-
-
+        <!--  Conteúdo principal  -->
         <Frame
             x:Name="fMain"
             Grid.Row="1"
-            BackgroundColor="{StaticResource Gray600}"
-            HorizontalOptions="FillAndExpand"
-            Style="{StaticResource Key=PJ_FrameStandard}"
-            VerticalOptions="FillAndExpand">
+            BackgroundColor="{StaticResource Gray900}"
+            BorderColor="{StaticResource Gray900}"
+            Style="{StaticResource Key=PJ_FrameStandard}">
 
             <ScrollView>
                 <VerticalStackLayout
@@ -67,12 +62,28 @@
             </ScrollView>
         </Frame>
 
-
+        <!--  Informações sobre conteúdo principal  -->
         <Frame
             Grid.Row="2"
-            BackgroundColor="{StaticResource Gray700}"
-            HorizontalOptions="FillAndExpand"
-            Style="{StaticResource Key=PJ_FrameStandard}"
-            VerticalOptions="FillAndExpand" />
+            BackgroundColor="{StaticResource Gray950}"
+            BorderColor="{StaticResource Gray950}"
+            Style="{StaticResource Key=PJ_FrameStandard}">
+            <Grid Margin="20,6,20,0" ColumnDefinitions="*, *">
+                <Label
+                    Grid.Column="0"
+                    HorizontalOptions="StartAndExpand"
+                    Style="{StaticResource Key=PJ_LabelSemiWhite_Light12}"
+                    Text="20 Boletos"
+                    VerticalOptions="Start" />
+                <Label
+                    Grid.Column="1"
+                    HorizontalOptions="EndAndExpand"
+                    Style="{StaticResource Key=PJ_LabelSemiWhite_Light12}"
+                    Text="R$ 999999999999,99"
+                    VerticalOptions="Start" />
+            </Grid>
+
+        </Frame>
+
     </Grid>
 </ContentPage>
