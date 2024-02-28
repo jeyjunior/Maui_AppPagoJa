@@ -1,21 +1,64 @@
 using CommunityToolkit.Maui.Views;
+using Maui_PagoJa.Interfaces;
+using Maui_PagoJa.Models.Entidades;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 
 namespace Maui_PagoJa.Views.Popups;
 public partial class PopupOpcoesPrincipal  : Popup
 {
-	public PopupOpcoesPrincipal()
+    #region Interfaces
+    private readonly IOrdenacaoBoletoRepository ordenacaoBoletoRepository;
+	#endregion
+	#region Propriedades
+	private IEnumerable<Ordenacao> ordenacaoCollection;
+    #endregion
+
+
+    public PopupOpcoesPrincipal()
 	{
 		InitializeComponent();
+
+		ordenacaoBoletoRepository = App.Container.GetInstance<IOrdenacaoBoletoRepository>();
+
+		CarregarInformacoesOrdenacao();
+    }
+
+	private void CarregarInformacoesOrdenacao()
+	{
+        ordenacaoCollection = ordenacaoBoletoRepository.GetOrdenacao().Result;
+
+		if(ordenacaoCollection != null && ordenacaoCollection.Count() > 0)
+		{
+			this.pckOrdenacao.ItemsSource = ordenacaoCollection.Select(i => i.Descricao).ToList();
+
+			string descricao = "Pago";
+			var ordenacaoSelecionado = ordenacaoCollection.FirstOrDefault(i => i.Sequencia == 1 && i.Ativo);
+
+			if (ordenacaoSelecionado != null && ordenacaoSelecionado.Sequencia > 0)
+				descricao = ordenacaoSelecionado.Descricao;
+
+            this.pckOrdenacao.SelectedItem = descricao;
+		}
 	}
 
     private void Popup_Opened(object sender, CommunityToolkit.Maui.Core.PopupOpenedEventArgs e)
     {
-		this.pckOrdenacao.ItemsSource = new List<string>()
-		{
-			"Em Aberto", "Pago", "Vencido", "Nome A - Z", "Nome Z - A", "Data Crescente", "Data Decrescente", "Menor Valor", "Maior Valor"
-        };
 
-		this.pckOrdenacao.SelectedIndex = 0;
     }
+
+    private void btnSalvar_Clicked(object sender, EventArgs e)
+    {
+		var ordenacao = ordenacaoCollection
+			.FirstOrDefault(i => i.Descricao == this.pckOrdenacao.SelectedItem.ToString());
+			
+		if(ordenacao != null)
+		{
+			ordenacao.Ativo = true;
+			ordenacao.Sequencia = 1;
+
+			ordenacaoBoletoRepository.UpdateOrdenacao(ordenacao);
+		}
+
+		this.Close();
+	}
 }

@@ -24,11 +24,7 @@ namespace Maui_PagoJa.Controls
 
         public async Task<IEnumerable<Boleto>> GetBoletosAsync()
         {
-            // APENAS PARA TESTES
-            var r = new Random();
-            int num = Convert.ToInt32(r.Next(0, 30));
-
-            string sql = $"SELECT * FROM Boleto LIMIT {num}";
+            string sql = $"SELECT * FROM Boleto LIMIT 30";
 
             var resultado = App.asyncConnection.QueryAsync<Boleto>(sql);
 
@@ -74,6 +70,5 @@ namespace Maui_PagoJa.Controls
             SaveBoletoAsync(new Boleto() { Nome = "Compra de Livros", DataVencimento = Convert.ToDateTime("29/05/2026"), Valor = 70.00, Status = StatusBoleto.Pago });
             SaveBoletoAsync(new Boleto() { Nome = "Assinatura de Jornal", DataVencimento = Convert.ToDateTime("30/05/2026"), Valor = 25.00, Status = StatusBoleto.EmAberto });
         }
-
     }
 }

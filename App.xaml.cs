@@ -1,6 +1,8 @@
 ﻿using Maui_PagoJa.Controls;
+using Maui_PagoJa.Controls.Repository;
 using Maui_PagoJa.Interfaces;
 using Maui_PagoJa.Models;
+using Maui_PagoJa.Models.Entidades;
 using SimpleInjector;
 using SQLite;
 
@@ -16,7 +18,9 @@ namespace Maui_PagoJa
 
             Container = new Container();
             RegisterDependencies();
+
             CreateDataBase();
+            SetOrdenacaoValues();
 
             MainPage = new TabbedPageMenu();
         }
@@ -25,7 +29,8 @@ namespace Maui_PagoJa
         private void RegisterDependencies()
         {
             Container.Register<IMiniaturaBoletoControl, MiniaturaBoletoControl>(Lifestyle.Singleton);
-            Container.Register<IBoletoRepository, BoletoRepository>(Lifestyle.Singleton);
+            Container.Register<IBoletoRepository, BoletoRepository>(Lifestyle.Singleton); 
+            Container.Register<IOrdenacaoBoletoRepository, OrdenacaoBoletoRepository>(Lifestyle.Singleton);
         }
 
         public async Task CreateDataBase()
@@ -35,16 +40,36 @@ namespace Maui_PagoJa
 
             asyncConnection = new SQLiteAsyncConnection(Data.DBase.DataBasePath, Data.DBase.Flags);
             await asyncConnection.CreateTableAsync<Boleto>();
+            await asyncConnection.CreateTableAsync<Ordenacao>();
         }
 
-        public async Task ClearDataBase()
+
+        private async Task SetOrdenacaoValues()
         {
-            if (asyncConnection is not null)
+            if (asyncConnection is null)
+            {
+                asyncConnection = new SQLiteAsyncConnection(Data.DBase.DataBasePath, Data.DBase.Flags);
+            }
+
+            var resultado = asyncConnection.QueryAsync<Ordenacao>("SELECT * FROM Ordenacao").Result;
+
+            if (resultado != null && resultado.Count() > 0)
                 return;
 
-            asyncConnection = new SQLiteAsyncConnection(Data.DBase.DataBasePath, Data.DBase.Flags);
+            var ordenacaoCollection = new List<Ordenacao>()
+            {
+                new Ordenacao { Descricao = "Em Aberto", Sequencia = 0, Ativo = true },
+                new Ordenacao { Descricao = "Pago", Sequencia = 0, Ativo = false },
+                new Ordenacao { Descricao = "Vencido", Sequencia = 1, Ativo = true },
+                new Ordenacao { Descricao = "Nome A - Z", Sequencia = 0, Ativo = false },
+                new Ordenacao { Descricao = "Nome Z - A", Sequencia = 0, Ativo = false },
+                new Ordenacao { Descricao = "Data Crescente", Sequencia = 0, Ativo = false },
+                new Ordenacao { Descricao = "Data Decrescente", Sequencia = 0, Ativo = false },
+                new Ordenacao { Descricao = "Menor Valor", Sequencia = 0, Ativo = false },
+                new Ordenacao { Descricao = "Maior Valor", Sequencia = 0, Ativo = false }
+            };
 
-            await asyncConnection.DropTableAsync<Boleto>();
+            await asyncConnection.InsertAllAsync(ordenacaoCollection);
         }
     }
 }

@@ -1,3 +1,4 @@
+using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
 using Maui_PagoJa.Controls;
 using Maui_PagoJa.Interfaces;
@@ -11,6 +12,7 @@ public partial class Principal : ContentPage
     #region Interfaces
     private readonly IMiniaturaBoletoControl miniaturaBoletoControl;
     private readonly IBoletoRepository boletoRepository;
+    private readonly IOrdenacaoBoletoRepository ordenacaoBoletoRepository;
     #endregion
 
     #region Propriedades
@@ -25,6 +27,7 @@ public partial class Principal : ContentPage
 
         miniaturaBoletoControl = App.Container.GetInstance<IMiniaturaBoletoControl>();
         boletoRepository = App.Container.GetInstance<IBoletoRepository>();
+        ordenacaoBoletoRepository = App.Container.GetInstance<IOrdenacaoBoletoRepository>();
 
         CarregarPoolMiniaturas();
         AddMiniaturas();
@@ -53,8 +56,14 @@ public partial class Principal : ContentPage
             item.IsVisible = false;
         }
 
-
         var resultado = boletoRepository.GetBoletosAsync().Result;
+
+        if(resultado == null || resultado.Count() <= 0)
+        {
+            boletoRepository.AddBoletosParaTeste();
+
+            resultado = boletoRepository.GetBoletosAsync().Result;
+        }   
 
         if (resultado != null && resultado.Count() > 0)
         {
@@ -79,7 +88,20 @@ public partial class Principal : ContentPage
     private void btnOptions_Clicked(object sender, EventArgs e)
     {
         var popup = new PopupOpcoesPrincipal();
+        popup.Closed += PopupOpcoesPrincipal_Closed;
+
         this.ShowPopup(popup);
+    }
+
+    private void PopupOpcoesPrincipal_Closed(object sender, PopupClosedEventArgs e)
+    {
+        // ATUALIZAR GRID
+        var resultado = ordenacaoBoletoRepository.GetOrdenacao().Result;
+
+        if(resultado != null)
+        {
+
+        }
     }
 }
 
