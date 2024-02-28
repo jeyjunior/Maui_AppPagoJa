@@ -31,7 +31,7 @@ public partial class PopupOpcoesPrincipal  : Popup
 		{
 			this.pckOrdenacao.ItemsSource = ordenacaoCollection.Select(i => i.Descricao).ToList();
 
-			string descricao = "Pago";
+			string descricao = "Nome A - Z";
 			var ordenacaoSelecionado = ordenacaoCollection.FirstOrDefault(i => i.Sequencia == 1 && i.Ativo);
 
 			if (ordenacaoSelecionado != null && ordenacaoSelecionado.Sequencia > 0)
@@ -56,7 +56,14 @@ public partial class PopupOpcoesPrincipal  : Popup
 			ordenacao.Ativo = true;
 			ordenacao.Sequencia = 1;
 
-			ordenacaoBoletoRepository.UpdateOrdenacao(ordenacao);
+			ordenacaoBoletoRepository.UpdateOrdenacao(6, 5, 2);
+		}
+
+		var teste = ordenacaoBoletoRepository.GetOrdenacao();
+
+		if(teste.Result != null)
+		{
+
 		}
 
 		this.Close();

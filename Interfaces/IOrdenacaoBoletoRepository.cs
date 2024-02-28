@@ -10,6 +10,6 @@ namespace Maui_PagoJa.Interfaces
     public interface IOrdenacaoBoletoRepository
     {
         Task<IEnumerable<Ordenacao>> GetOrdenacao();
-        Task UpdateOrdenacao(Ordenacao ordenacao);
+        Task UpdateOrdenacao(int PK_Ordenacao1, int PK_Ordenacao2, int PK_Ordenacao3);
     }
 }

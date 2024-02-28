@@ -24,28 +24,33 @@ namespace Maui_PagoJa.Controls.Repository
             return null;
         }
 
-        public async Task UpdateOrdenacao(Ordenacao ordenacao)
+        public async Task UpdateOrdenacao(int PK_Ordenacao1, int PK_Ordenacao2, int PK_Ordenacao3)
         {
-            if (ordenacao == null)
+            if (PK_Ordenacao1 <= 0 || PK_Ordenacao2 <= 0 || PK_Ordenacao3 <= 0)
                 return;
 
-            string sqlLimpar = " UPDATE Ordenacao " +
-                                " SET" +
-                                "       Sequencia = CASE" +
-                               $"                       WHEN PK_Ordenacao = {ordenacao.PK_Ordenacao} THEN 1" +
-                                "                       ELSE 0" +
-                                "                   END," +
-                                "       Ativo = CASE" +
-                               $"                       WHEN PK_Ordenacao = {ordenacao.PK_Ordenacao} THEN 1" +
-                                "                       ELSE 0" +
-                                "               END;";
+            string sqlUpdate = $"UPDATE Ordenacao " +
+                               $"SET Sequencia = " +
+                               $"    CASE " +
+                               $"        WHEN PK_Ordenacao = {PK_Ordenacao1} THEN 1 " +
+                               $"        WHEN PK_Ordenacao = {PK_Ordenacao2} THEN 2 " +
+                               $"        WHEN PK_Ordenacao = {PK_Ordenacao3} THEN 3 " +
+                               $"        ELSE 0 " +
+                               $"    END, " +
+                               $"    Ativo = " +
+                               $"    CASE " +
+                               $"        WHEN PK_Ordenacao IN ({PK_Ordenacao1}, {PK_Ordenacao2}, {PK_Ordenacao3}) THEN 1 " +
+                               $"        ELSE 0 " +
+                               $"    END;";
 
-            var resultado = App.asyncConnection.ExecuteAsync(sqlLimpar);
+            var resultado = await App.asyncConnection.ExecuteAsync(sqlUpdate);
 
-            if(resultado.Result != null)
+            // Verificar o resultado da execução, lidar com exceções, etc.
+            if (resultado != null)
             {
-
+                // Código de tratamento do resultado...
             }
         }
+
     }
 }

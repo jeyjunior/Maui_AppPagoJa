@@ -58,16 +58,24 @@ public partial class Principal : ContentPage
 
         var resultado = boletoRepository.GetBoletosAsync().Result;
 
+        // APENAS PARA TESTE, REMOVER QUANDO COMEÇAR A IMPLEMENTAR BOLETOS MANUALMENTE
         if(resultado == null || resultado.Count() <= 0)
         {
             boletoRepository.AddBoletosParaTeste();
 
             resultado = boletoRepository.GetBoletosAsync().Result;
-        }   
+        }
+
+        // SEMPRE QUE FOR ADD BOLETOS A STACK vStackMain, LIMPAR A COLEÇÃO CHILDREN
+        //if (vStackMain.Children.Count() > 0)
+        //    vStackMain.Children.Clear();
 
         if (resultado != null && resultado.Count() > 0)
         {
-            var boletosCollection = resultado.ToArray();
+            var boletosCollection = resultado
+                //.OrderByDescending(i => i.Status == StatusBoleto.Vencido)
+                //.ThenByDescending(i => i.Status == StatusBoleto.EmAberto)
+                .ToArray();
 
             for (int i = 0; i < boletosCollection.Count(); i++)
             {
@@ -80,6 +88,13 @@ public partial class Principal : ContentPage
             }
         }
     }
+
+    private IEnumerable<Boleto> Ordenar()
+    {
+        return null;
+    }
+
+
     private void ContentPage_Loaded(object sender, EventArgs e)
     {
         CarregarBoletos();
