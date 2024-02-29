@@ -58,9 +58,9 @@ namespace Maui_PagoJa
 
             var ordenacaoCollection = new List<Ordenacao>()
             {
-                new Ordenacao { Descricao = "Em Aberto", Sequencia = 0, Ativo = false },
-                new Ordenacao { Descricao = "Pago", Sequencia = 0, Ativo = false },
-                new Ordenacao { Descricao = "Vencido", Sequencia = 0, Ativo = false },
+                new Ordenacao { Descricao = "Em Aberto", Sequencia = 3, Ativo = true },
+                new Ordenacao { Descricao = "Pago", Sequencia = 0, Ativo = true },
+                new Ordenacao { Descricao = "Vencido", Sequencia = 2, Ativo = false },
                 new Ordenacao { Descricao = "Nome A - Z", Sequencia = 1, Ativo = true },
                 new Ordenacao { Descricao = "Nome Z - A", Sequencia = 0, Ativo = false },
                 new Ordenacao { Descricao = "Data Crescente", Sequencia = 0, Ativo = false },

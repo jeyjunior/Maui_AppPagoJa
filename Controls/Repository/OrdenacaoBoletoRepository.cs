@@ -45,7 +45,6 @@ namespace Maui_PagoJa.Controls.Repository
 
             var resultado = await App.asyncConnection.ExecuteAsync(sqlUpdate);
 
-            // Verificar o resultado da execução, lidar com exceções, etc.
             if (resultado != null)
             {
                 // Código de tratamento do resultado...

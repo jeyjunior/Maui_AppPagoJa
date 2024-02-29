@@ -3,6 +3,7 @@ using CommunityToolkit.Maui.Views;
 using Maui_PagoJa.Controls;
 using Maui_PagoJa.Interfaces;
 using Maui_PagoJa.Models;
+using Maui_PagoJa.Models.Entidades;
 using Maui_PagoJa.Views.Popups;
 
 namespace Maui_PagoJa.Views;
@@ -17,7 +18,7 @@ public partial class Principal : ContentPage
 
     #region Propriedades
     private IEnumerable<MiniaturaBoletoView> poolMiniaturaBoletosView;
-    private bool atualizando = false;
+    //private IEnumerable<Ordenacao> ordenacaoCollection;
     #endregion
 
     #region Construtor
@@ -27,7 +28,7 @@ public partial class Principal : ContentPage
 
         miniaturaBoletoControl = App.Container.GetInstance<IMiniaturaBoletoControl>();
         boletoRepository = App.Container.GetInstance<IBoletoRepository>();
-        ordenacaoBoletoRepository = App.Container.GetInstance<IOrdenacaoBoletoRepository>();
+        //ordenacaoBoletoRepository = App.Container.GetInstance<IOrdenacaoBoletoRepository>();
 
         CarregarPoolMiniaturas();
         AddMiniaturas();
@@ -35,8 +36,15 @@ public partial class Principal : ContentPage
     #endregion
     private void CarregarPoolMiniaturas()
     {
-        // Qtd será definida nas configs?
         poolMiniaturaBoletosView = miniaturaBoletoControl.CriarPool(30);
+    }
+
+    private void CarregarInitialSetup()
+    {
+        //var resultado = ordenacaoBoletoRepository.GetOrdenacao();
+
+        //if (resultado.Result != null)
+        //    ordenacaoCollection = resultado.Result;
     }
     private void AddMiniaturas()
     {
@@ -66,15 +74,13 @@ public partial class Principal : ContentPage
             resultado = boletoRepository.GetBoletosAsync().Result;
         }
 
-        // SEMPRE QUE FOR ADD BOLETOS A STACK vStackMain, LIMPAR A COLEÇÃO CHILDREN
-        //if (vStackMain.Children.Count() > 0)
-        //    vStackMain.Children.Clear();
-
         if (resultado != null && resultado.Count() > 0)
         {
             var boletosCollection = resultado
-                //.OrderByDescending(i => i.Status == StatusBoleto.Vencido)
-                //.ThenByDescending(i => i.Status == StatusBoleto.EmAberto)
+                .OrderByDescending(i => i.Status == StatusBoleto.Vencido)
+                .ThenByDescending(i => i.Status == StatusBoleto.EmAberto)
+                .ThenByDescending(i => i.Status == StatusBoleto.Pago)
+                .ThenByDescending(i => i.DataVencimento)
                 .ToArray();
 
             for (int i = 0; i < boletosCollection.Count(); i++)
@@ -89,19 +95,16 @@ public partial class Principal : ContentPage
         }
     }
 
-    private IEnumerable<Boleto> Ordenar()
-    {
-        return null;
-    }
-
-
     private void ContentPage_Loaded(object sender, EventArgs e)
     {
+        CarregarInitialSetup();
         CarregarBoletos();
     }
 
     private void btnOptions_Clicked(object sender, EventArgs e)
     {
+        return;
+
         var popup = new PopupOpcoesPrincipal();
         popup.Closed += PopupOpcoesPrincipal_Closed;
 
@@ -110,13 +113,8 @@ public partial class Principal : ContentPage
 
     private void PopupOpcoesPrincipal_Closed(object sender, PopupClosedEventArgs e)
     {
-        // ATUALIZAR GRID
-        var resultado = ordenacaoBoletoRepository.GetOrdenacao().Result;
-
-        if(resultado != null)
-        {
-
-        }
+        CarregarInitialSetup();
+        CarregarBoletos();
     }
 }
 
