@@ -56,7 +56,7 @@ public partial class Principal : ContentPage
             }
         }
     }
-
+    // Teste Repositório
 	public void CarregarBoletos()
 	{
         foreach (var item in poolMiniaturaBoletosView)
