@@ -3,12 +3,72 @@
     x:Class="Maui_PagoJa.Views.Configuracao"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:pagesView="clr-namespace:Maui_PagoJa.Views"
     Title="Configurações"
-    IconImageSource="settings_white.svg">
-    <VerticalStackLayout>
-        <Label
-            HorizontalOptions="Center"
-            Text="Config"
-            VerticalOptions="Center" />
-    </VerticalStackLayout>
+    BackgroundColor="{StaticResource Gray950}"
+    IconImageSource="settings_white.svg"
+    Style="{StaticResource Key=PJ_ContentPage}">
+
+    <Grid
+        Margin="0"
+        Padding="0"
+        RowDefinitions="70, *, 60">
+
+        <!--  Cabeçalho, conteúdo para filtros e pesquisas  -->
+        <Grid
+            Grid.Row="0"
+            Margin="20,0,20,0"
+            Padding="0"
+            ColumnDefinitions="*, 50">
+
+            <Label
+                Grid.Column="0"
+                HorizontalOptions="StartAndExpand"
+                Style="{StaticResource PJ_LabelWhite_Bold16}"
+                Text="Configuração"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="btnSearch"
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                ImageSource="search_blue.svg"
+                Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
+                VerticalOptions="Center" />
+        </Grid>
+
+        <!--  Conteúdo principal  -->
+        <Frame
+            x:Name="fMain"
+            Grid.Row="1"
+            BackgroundColor="{StaticResource Gray900}"
+            BorderColor="{StaticResource Gray900}"
+            Style="{StaticResource Key=PJ_FrameStandard}">
+
+            <ScrollView>
+                <VerticalStackLayout
+                    x:Name="vStackMain"
+                    Margin="0"
+                    Padding="0"
+                    Spacing="5" />
+            </ScrollView>
+        </Frame>
+
+        <!--  Informações sobre conteúdo principal  -->
+        <Frame
+            Grid.Row="2"
+            BackgroundColor="{StaticResource Gray950}"
+            BorderColor="{StaticResource Gray950}"
+            Style="{StaticResource Key=PJ_FrameStandard}">
+            <Grid Margin="20,6,20,0" ColumnDefinitions="*, *">
+                <Label
+                    x:Name="lbl"
+                    Grid.Column="0"
+                    Style="{StaticResource Key=PJ_LabelSemiWhite_Light12}"
+                    Text="Status"
+                    VerticalOptions="Start" />
+            </Grid>
+        </Frame>
+
+    </Grid>
+
 </ContentPage>
