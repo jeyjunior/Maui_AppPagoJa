@@ -70,12 +70,14 @@
             Style="{StaticResource Key=PJ_FrameStandard}">
             <Grid Margin="20,6,20,0" ColumnDefinitions="*, *">
                 <Label
+                    x:Name="lblBoletosTotal"
                     Grid.Column="0"
                     HorizontalOptions="StartAndExpand"
                     Style="{StaticResource Key=PJ_LabelSemiWhite_Light12}"
                     Text="20 Boletos"
                     VerticalOptions="Start" />
                 <Label
+                    x:Name="lblValorTotal"
                     Grid.Column="1"
                     HorizontalOptions="EndAndExpand"
                     Style="{StaticResource Key=PJ_LabelSemiWhite_Light12}"

@@ -21,7 +21,10 @@ namespace Maui_PagoJa.Models
         public double Valor { get; set; }
         [NotNull]
         public StatusBoleto Status { get; set; }
-
+        [NotNull]
+        public int RepetirMeses { get; set; }
+        [NotNull]
+        public bool Ativo { get; set; }
         public bool IsValid => Validate() == null;
         public ValidationResult Validate()
         {

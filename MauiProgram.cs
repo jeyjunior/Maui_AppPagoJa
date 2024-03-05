@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using Microsoft.Maui.LifecycleEvents;
 
 namespace Maui_PagoJa
 {

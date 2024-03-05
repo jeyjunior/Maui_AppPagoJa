@@ -17,11 +17,11 @@
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="10" />
-            <ColumnDefinition Width="66" />
+            <ColumnDefinition Width="90" />
             <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
 
-        <Frame Grid.Column="1" Style="{StaticResource Key=PJ_FrameStandard}">
+        <Frame Grid.Column="1" Style="{StaticResource Key=PJ_FrameMiniaturaBoletos}">
             <BoxView
                 x:Name="bxvStatus"
                 CornerRadius="60"
@@ -34,13 +34,13 @@
             Margin="0,0,0,0"
             Padding="6,0"
             Spacing="2">
-            <Frame HeightRequest="34" Style="{StaticResource Key=PJ_FrameStandard}">
+            <Frame HeightRequest="34" Style="{StaticResource Key=PJ_FrameMiniaturaBoletos}">
                 <Label
                     x:Name="lblNome"
                     Style="{StaticResource Key=PJ_LabelWhite_Regular16}"
                     VerticalOptions="End" />
             </Frame>
-            <Frame HeightRequest="24" Style="{StaticResource Key=PJ_FrameStandard}">
+            <Frame HeightRequest="24" Style="{StaticResource Key=PJ_FrameMiniaturaBoletos}">
                 <Label
                     x:Name="lblPreco"
                     Style="{StaticResource Key=PJ_LabelSemiWhite_Regular12}"
@@ -52,11 +52,11 @@
         <Frame
             Grid.Column="5"
             HorizontalOptions="End"
-            Style="{StaticResource Key=PJ_FrameStandard}">
+            Style="{StaticResource Key=PJ_FrameMiniaturaBoletos}">
             <Label
                 x:Name="lblData"
                 HorizontalOptions="End"
-                Style="{StaticResource Key=PJ_LabelSemiWhite_Regular12}" />
+                Style="{StaticResource Key=PJ_LabelSemiWhite_Regular14}" />
 
         </Frame>
     </Grid>

@@ -41,6 +41,7 @@ namespace Maui_PagoJa
             asyncConnection = new SQLiteAsyncConnection(Data.DBase.DataBasePath, Data.DBase.Flags);
             await asyncConnection.CreateTableAsync<Boleto>();
             await asyncConnection.CreateTableAsync<Ordenacao>();
+            await asyncConnection.CreateTableAsync<LancamentoBoleto>();
         }
 
 

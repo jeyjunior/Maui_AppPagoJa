@@ -5,6 +5,7 @@ using Maui_PagoJa.Interfaces;
 using Maui_PagoJa.Models;
 using Maui_PagoJa.Models.Entidades;
 using Maui_PagoJa.Views.Popups;
+using System.Globalization;
 
 namespace Maui_PagoJa.Views;
 
@@ -18,6 +19,7 @@ public partial class Principal : ContentPage
 
     #region Propriedades
     private IEnumerable<MiniaturaBoletoView> poolMiniaturaBoletosView;
+    private IEnumerable<Boleto> boletosCollection;
     //private IEnumerable<Ordenacao> ordenacaoCollection;
     #endregion
 
@@ -64,34 +66,51 @@ public partial class Principal : ContentPage
             item.IsVisible = false;
         }
 
-        var resultado = boletoRepository.GetBoletosAsync().Result;
+        boletosCollection = boletoRepository.GetBoletosAsync().Result;
 
         // APENAS PARA TESTE, REMOVER QUANDO COMEÇAR A IMPLEMENTAR BOLETOS MANUALMENTE
-        if(resultado == null || resultado.Count() <= 0)
+        if(boletosCollection == null || boletosCollection.Count() <= 0)
         {
             boletoRepository.AddBoletosParaTeste();
 
-            resultado = boletoRepository.GetBoletosAsync().Result;
+            boletosCollection = boletoRepository.GetBoletosAsync().Result;
         }
 
-        if (resultado != null && resultado.Count() > 0)
+        if (boletosCollection != null && boletosCollection.Count() > 0)
         {
-            var boletosCollection = resultado
+            var boletosOrdenados = boletosCollection
                 .OrderByDescending(i => i.Status == StatusBoleto.Vencido)
                 .ThenByDescending(i => i.Status == StatusBoleto.EmAberto)
                 .ThenByDescending(i => i.Status == StatusBoleto.Pago)
                 .ThenByDescending(i => i.DataVencimento)
                 .ToArray();
 
-            for (int i = 0; i < boletosCollection.Count(); i++)
+            for (int i = 0; i < boletosOrdenados.Count(); i++)
             {
                 if (vStackMain.Children != null)
                 {
-                    var boleto = boletosCollection[i];
+                    var boleto = boletosOrdenados[i];
                     ((MiniaturaBoletoView)vStackMain.Children[i]).DefinirInformacoes(boleto);
                     ((MiniaturaBoletoView)vStackMain.Children[i]).IsVisible = true;
                 }
             }
+        }
+
+        AtualizarLabelsQuantidades();
+    }
+
+    private void AtualizarLabelsQuantidades() 
+    {
+        lblBoletosTotal.Text = $"Nenhum boleto";
+        lblValorTotal.Text = $"R$ 00,00";
+
+        if (boletosCollection != null && boletosCollection.Count() > 0)
+        {
+            var valorTotal = boletosCollection.Sum(s => s.Valor).ToString("C", new CultureInfo("pt-BR"));
+            var boletosTotal = boletosCollection.Count() == 1 ? boletosCollection.Count() + " Boleto" : boletosCollection.Count() + " Boletos";
+
+            lblValorTotal.Text = valorTotal;
+            lblBoletosTotal.Text = boletosTotal;
         }
     }
 
