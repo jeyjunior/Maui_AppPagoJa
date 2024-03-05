@@ -19,20 +19,13 @@
             Grid.Row="0"
             Margin="20,0,20,0"
             Padding="0"
-            ColumnDefinitions="*, 50">
+            ColumnDefinitions="*">
 
             <Label
-                Grid.Column="0"
+                Grid.Row="0"
                 HorizontalOptions="StartAndExpand"
                 Style="{StaticResource PJ_LabelWhite_Bold16}"
                 Text="Registrar Boleto"
-                VerticalOptions="Center" />
-            <Button
-                x:Name="btnSearch"
-                Grid.Column="2"
-                HorizontalOptions="Center"
-                ImageSource="search_blue.svg"
-                Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
                 VerticalOptions="Center" />
         </Grid>
 
@@ -45,11 +38,109 @@
             Style="{StaticResource Key=PJ_FrameStandard}">
 
             <ScrollView>
-                <VerticalStackLayout
-                    x:Name="vStackMain"
+                <Grid
                     Margin="0"
                     Padding="0"
-                    Spacing="5" />
+                    ColumnDefinitions="20, *, 20"
+                    RowDefinitions="25, 60, *, 60, *, 60, *, 60, *, 25 ">
+
+                    <!--  Nome Boleto  -->
+                    <StackLayout
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="0"
+                        Padding="0"
+                        Orientation="Vertical"
+                        Spacing="10">
+                        <Label Style="{StaticResource PJ_LabelWhite_Regular16}" Text="Nome Boleto" />
+                        <Frame
+                            Margin="0"
+                            Padding="10,0,10,0"
+                            BackgroundColor="#D1D1D1"
+                            CornerRadius="6"
+                            HeightRequest="60">
+                            <Entry
+                                Margin="0"
+                                FontSize="20"
+                                MaxLength="30"
+                                TextColor="{StaticResource Gray950}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Frame>
+                    </StackLayout>
+
+                    <!--  Valor Boleto  -->
+                    <StackLayout
+                        Grid.Row="3"
+                        Grid.Column="1"
+                        Margin="0"
+                        Padding="0"
+                        Orientation="Vertical"
+                        Spacing="10">
+                        <Label Style="{StaticResource PJ_LabelWhite_Regular16}" Text="Valor (R$)" />
+                        <Frame
+                            Margin="0"
+                            Padding="10,0,10,0"
+                            BackgroundColor="#D1D1D1"
+                            CornerRadius="6"
+                            HeightRequest="60">
+                            <Entry
+                                Margin="0"
+                                FontSize="20"
+                                MaxLength="30"
+                                TextColor="{StaticResource Gray950}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Frame>
+                    </StackLayout>
+
+                    <!--  Data Vencimento  -->
+                    <StackLayout
+                        Grid.Row="5"
+                        Grid.Column="1"
+                        Margin="0"
+                        Padding="0"
+                        Orientation="Vertical"
+                        Spacing="10">
+                        <Label Style="{StaticResource PJ_LabelWhite_Regular16}" Text="Data Vencimento" />
+                        <Frame
+                            Margin="0"
+                            Padding="10,0,10,0"
+                            BackgroundColor="#D1D1D1"
+                            CornerRadius="6"
+                            HeightRequest="60">
+                            <Entry
+                                Margin="0"
+                                FontSize="20"
+                                MaxLength="30"
+                                TextColor="{StaticResource Gray950}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Frame>
+                    </StackLayout>
+
+                    <!--  Repetir Mês  -->
+                    <StackLayout
+                        Grid.Row="7"
+                        Grid.Column="1"
+                        Margin="0"
+                        Padding="0"
+                        Orientation="Vertical"
+                        Spacing="10">
+                        <Label Style="{StaticResource PJ_LabelWhite_Regular16}" Text="Repetir (Mês)" />
+                        <Frame
+                            Margin="0"
+                            Padding="10,0,10,0"
+                            BackgroundColor="#D1D1D1"
+                            CornerRadius="6"
+                            HeightRequest="60">
+                            <Entry
+                                Margin="0"
+                                FontSize="20"
+                                MaxLength="30"
+                                TextColor="{StaticResource Gray950}"
+                                VerticalOptions="CenterAndExpand" />
+                        </Frame>
+                    </StackLayout>
+                </Grid>
+
             </ScrollView>
         </Frame>
 
