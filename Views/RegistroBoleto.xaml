@@ -20,7 +20,6 @@
             Margin="20,0,20,0"
             Padding="0"
             ColumnDefinitions="*">
-
             <Label
                 Grid.Row="0"
                 HorizontalOptions="StartAndExpand"
@@ -42,7 +41,7 @@
                     Margin="0"
                     Padding="0"
                     ColumnDefinitions="20, *, 20"
-                    RowDefinitions="25, 60, *, 60, *, 60, *, 60, *, 25 ">
+                    RowDefinitions="25, 60, *, 60, *, 60, *, 60, *, 70, 25 ">
 
                     <!--  Nome Boleto  -->
                     <StackLayout
@@ -58,7 +57,7 @@
                             Padding="10,0,10,0"
                             BackgroundColor="#D1D1D1"
                             CornerRadius="6"
-                            HeightRequest="60">
+                            HeightRequest="50">
                             <Entry
                                 Margin="0"
                                 FontSize="20"
@@ -82,7 +81,7 @@
                             Padding="10,0,10,0"
                             BackgroundColor="#D1D1D1"
                             CornerRadius="6"
-                            HeightRequest="60">
+                            HeightRequest="50">
                             <Entry
                                 Margin="0"
                                 FontSize="20"
@@ -106,7 +105,7 @@
                             Padding="10,0,10,0"
                             BackgroundColor="#D1D1D1"
                             CornerRadius="6"
-                            HeightRequest="60">
+                            HeightRequest="50">
                             <Entry
                                 Margin="0"
                                 FontSize="20"
@@ -130,7 +129,7 @@
                             Padding="10,0,10,0"
                             BackgroundColor="#D1D1D1"
                             CornerRadius="6"
-                            HeightRequest="60">
+                            HeightRequest="50">
                             <Entry
                                 Margin="0"
                                 FontSize="20"
@@ -138,6 +137,23 @@
                                 TextColor="{StaticResource Gray950}"
                                 VerticalOptions="CenterAndExpand" />
                         </Frame>
+                    </StackLayout>
+
+                    <!--  Repetir Mês  -->
+                    <StackLayout
+                        Grid.Row="9"
+                        Grid.Column="1"
+                        Margin="0"
+                        Padding="0"
+                        Orientation="Vertical"
+                        Spacing="10"
+                        VerticalOptions="FillAndExpand">
+                        <Button
+                            HeightRequest="50"
+                            ImageSource="save_blue.svg"
+                            Style="{StaticResource PJ_ButtonPrimaryStandard}"
+                            Text="Salvar"
+                            VerticalOptions="EndAndExpand" />
                     </StackLayout>
                 </Grid>
 
