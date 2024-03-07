@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using Microsoft.Maui.LifecycleEvents;
-
+using Microsoft.Maui.Hosting;
 namespace Maui_PagoJa
 {
     public static class MauiProgram
@@ -23,6 +23,7 @@ namespace Maui_PagoJa
                     fonts.AddFont("Roboto-Medium.ttf", "Roboto-Medium");
                     fonts.AddFont("Roboto-Regular.ttf", "Roboto-Regular");
                 });
+
 #if DEBUG
             builder.Logging.AddDebug();
 #endif

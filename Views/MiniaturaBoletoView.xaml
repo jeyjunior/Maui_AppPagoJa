@@ -26,8 +26,7 @@
                 x:Name="bxvStatus"
                 CornerRadius="60"
                 HeightRequest="6"
-                WidthRequest="6"
-                Color="Red" />
+                WidthRequest="6" />
         </Frame>
         <VerticalStackLayout
             Grid.Column="3"
