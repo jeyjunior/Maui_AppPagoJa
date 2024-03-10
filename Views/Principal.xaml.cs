@@ -82,7 +82,7 @@ public partial class Principal : ContentPage
                 .OrderByDescending(i => i.Status == StatusBoleto.Vencido)
                 .ThenByDescending(i => i.Status == StatusBoleto.EmAberto)
                 .ThenByDescending(i => i.Status == StatusBoleto.Pago)
-                .ThenByDescending(i => i.DataVencimento)
+                .ThenBy(i => i.DiaVencimento)
                 .ToArray();
 
             for (int i = 0; i < boletosOrdenados.Count(); i++)

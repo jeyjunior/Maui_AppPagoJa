@@ -38,11 +38,17 @@ namespace Maui_PagoJa.Controls
 
         public void AddBoletosParaTeste()
         {
-            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot", DataVencimento = Convert.ToDateTime("01/05/2026"), Valor = 850.00, Status = StatusBoleto.EmAberto, RepetirMeses = 5 ,Ativo = true });
-            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Sp", DataVencimento = Convert.ToDateTime("02/05/2026"), Valor = 79.90, Status = StatusBoleto.Vencido, RepetirMeses = 2, Ativo = true });
-            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot.", DataVencimento = Convert.ToDateTime("03/05/2026"), Valor = 150.00, Status = StatusBoleto.Pago, RepetirMeses = 9, Ativo = true });
-            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot.", DataVencimento = Convert.ToDateTime("04/05/2026"), Valor = 300.00, Status = StatusBoleto.Nenhum, RepetirMeses = 6, Ativo = true });
-            SaveBoletoAsync(new Boleto() { Nome = "Boleto Inativo", DataVencimento = Convert.ToDateTime("01/01/2024"), Valor = 999.99, Status = StatusBoleto.Nenhum, RepetirMeses = 10, Ativo = false });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot", DataLimite = null, Valor = 850, Status = StatusBoleto.EmAberto, DiaVencimento = 5 , DataRegistro = DateTime.Today, PgtoContinuo = true, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot", DataLimite = null, Valor = 850, Status = StatusBoleto.EmAberto, DiaVencimento = 4 , DataRegistro = DateTime.Today, PgtoContinuo = true, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot", DataLimite = null, Valor = 850, Status = StatusBoleto.EmAberto, DiaVencimento = 10 , DataRegistro = DateTime.Today, PgtoContinuo = true, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Sp", DataLimite = Convert.ToDateTime("02/05/2026"), Valor = 79, Status = StatusBoleto.Vencido, DiaVencimento = 2, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Sp", DataLimite = Convert.ToDateTime("02/05/2026"), Valor = 79, Status = StatusBoleto.Vencido, DiaVencimento = 12, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Sp", DataLimite = Convert.ToDateTime("02/05/2026"), Valor = 79, Status = StatusBoleto.Vencido, DiaVencimento = 22, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot.", DataLimite = Convert.ToDateTime("03/05/2026"), Valor = 150, Status = StatusBoleto.Pago, DiaVencimento = 19, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot.", DataLimite = Convert.ToDateTime("03/05/2026"), Valor = 150, Status = StatusBoleto.Pago, DiaVencimento = 25, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot.", DataLimite = Convert.ToDateTime("03/05/2026"), Valor = 150, Status = StatusBoleto.Pago, DiaVencimento = 3, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto de Condomínio The Spot.", DataLimite = Convert.ToDateTime("04/05/2026"), Valor = 300, Status = StatusBoleto.Nenhum, DiaVencimento = 6, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = true });
+            SaveBoletoAsync(new Boleto() { Nome = "Boleto Inativo", DataLimite = Convert.ToDateTime("01/01/2024"), Valor = 999.99M, Status = StatusBoleto.Nenhum, DiaVencimento = 10, DataRegistro = DateTime.Today, PgtoContinuo = false, Ativo = false });
         }
     }
 }

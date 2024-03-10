@@ -29,7 +29,7 @@ namespace Maui_PagoJa.Controls
 
             for (int i = 0; i < quantidade; i++)
             {
-                var miniatura = Criar(new Boleto { Nome = "Boleto", DataVencimento = DateTime.Today, Valor = 00.00, Status = StatusBoleto.Nenhum });
+                var miniatura = Criar(new Boleto { Nome = "Boleto", DiaVencimento = 10, DataLimite = DateTime.Today.AddMonths(i), Ativo = true, DataRegistro = DateTime.Today, PgtoContinuo = false, Valor = 999, Status = StatusBoleto.EmAberto });
 
                 if(miniatura != null)
                     miniaturaBoletos.Add(miniatura);

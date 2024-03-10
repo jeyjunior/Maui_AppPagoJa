@@ -13,8 +13,15 @@ public partial class MiniaturaBoletoView : ContentView
 	public void DefinirInformacoes(Boleto boleto)
 	{
 		lblNome.Text = boleto.Nome;
-		lblData.Text = boleto.DataVencimento.ToShortDateString();
 		lblPreco.Text = boleto.Valor.ToString("C");
+
+        int dia = boleto.DiaVencimento;
+        int mes = DateTime.Today.Month;
+        int ano = DateTime.Today.Year;
+
+        DateTime dataVencimento = new DateTime(ano, mes, dia);
+
+        lblData.Text = dataVencimento.ToString("dd/MM/yyyy");
 
         if (boleto.Status == StatusBoleto.EmAberto)
         {
