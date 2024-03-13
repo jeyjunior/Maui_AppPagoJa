@@ -1,7 +1,7 @@
 using CommunityToolkit.Maui.Core;
 using CommunityToolkit.Maui.Views;
 using Maui_PagoJa.Controls;
-using Maui_PagoJa.Interfaces;
+using Maui_PagoJa.Controls.Interfaces;
 using Maui_PagoJa.Models;
 using Maui_PagoJa.Models.Entidades;
 using Maui_PagoJa.Views.Popups;

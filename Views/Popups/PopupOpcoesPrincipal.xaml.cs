@@ -1,5 +1,5 @@
 using CommunityToolkit.Maui.Views;
-using Maui_PagoJa.Interfaces;
+using Maui_PagoJa.Controls.Interfaces;
 using Maui_PagoJa.Models.Entidades;
 using Microsoft.Maui.Controls.PlatformConfiguration;
 

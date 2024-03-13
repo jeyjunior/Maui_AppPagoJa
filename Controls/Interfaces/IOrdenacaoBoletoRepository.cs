@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maui_PagoJa.Interfaces
+namespace Maui_PagoJa.Controls.Interfaces
 {
     public interface IOrdenacaoBoletoRepository
     {

@@ -1,4 +1,4 @@
-﻿using Maui_PagoJa.Interfaces;
+﻿using Maui_PagoJa.Controls.Interfaces;
 using Maui_PagoJa.Models.Entidades;
 using System;
 using System.Collections.Generic;

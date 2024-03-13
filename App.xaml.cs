@@ -1,6 +1,6 @@
 ﻿using Maui_PagoJa.Controls;
+using Maui_PagoJa.Controls.Interfaces;
 using Maui_PagoJa.Controls.Repository;
-using Maui_PagoJa.Interfaces;
 using Maui_PagoJa.Models;
 using Maui_PagoJa.Models.Entidades;
 using SimpleInjector;
@@ -38,7 +38,14 @@ namespace Maui_PagoJa
             if (asyncConnection is not null)
                 return;
 
+
+/* Alteração não mesclada do projeto 'Maui_PagoJa (net7.0-android)'
+Antes:
             asyncConnection = new SQLiteAsyncConnection(Data.DBase.DataBasePath, Data.DBase.Flags);
+Após:
+            asyncConnection = new SQLiteAsyncConnection(DBase.DataBasePath, DBase.Flags);
+*/
+            asyncConnection = new SQLiteAsyncConnection(Controls.Data.DBase.DataBasePath, Controls.Data.DBase.Flags);
             await asyncConnection.CreateTableAsync<Boleto>();
             await asyncConnection.CreateTableAsync<Ordenacao>();
             await asyncConnection.CreateTableAsync<LancamentoBoleto>();
@@ -49,7 +56,14 @@ namespace Maui_PagoJa
         {
             if (asyncConnection is null)
             {
+
+/* Alteração não mesclada do projeto 'Maui_PagoJa (net7.0-android)'
+Antes:
                 asyncConnection = new SQLiteAsyncConnection(Data.DBase.DataBasePath, Data.DBase.Flags);
+Após:
+                asyncConnection = new SQLiteAsyncConnection(DBase.DataBasePath, DBase.Flags);
+*/
+                asyncConnection = new SQLiteAsyncConnection(Controls.Data.DBase.DataBasePath, Controls.Data.DBase.Flags);
             }
 
             var resultado = asyncConnection.QueryAsync<Ordenacao>("SELECT * FROM Ordenacao").Result;

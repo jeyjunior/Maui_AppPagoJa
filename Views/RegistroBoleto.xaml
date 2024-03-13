@@ -14,7 +14,7 @@
         Padding="0"
         RowDefinitions="70, *, 60">
 
-        <!--  Cabeçalho, conteúdo para filtros e pesquisas  -->
+        <!--  Cabeçalho  -->
         <Grid
             Grid.Row="0"
             Margin="20,0,20,0"
@@ -161,7 +161,7 @@
             </ScrollView>
         </Frame>
 
-        <!--  Informações sobre conteúdo principal  -->
+        <!--  Salvar Informações  -->
         <Frame
             Grid.Row="2"
             BackgroundColor="{StaticResource Gray950}"
