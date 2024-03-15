@@ -27,6 +27,19 @@
         <Setter Property="BorderColor" Value="{StaticResource Gray900}" />
     </Style>
 
+    <Style
+        x:Key="PJ_FrameRegistroBoletos"
+        BasedOn="{StaticResource PJ_FrameStandard}"
+        TargetType="Frame">
+        <Setter Property="Margin" Value="0" />
+        <Setter Property="Padding" Value="5" />
+        <Setter Property="VerticalOptions" Value="CenterAndExpand" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="BackgroundColor" Value="{StaticResource Gray200 }" />
+        <Setter Property="BorderColor" Value="{StaticResource Gray300}" />
+    </Style>
+
     <!--  Button  -->
     <Style x:Key="PJ_ButtonPrimaryStandard" TargetType="Button">
         <Setter Property="Margin" Value="0" />
