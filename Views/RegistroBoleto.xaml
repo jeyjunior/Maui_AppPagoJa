@@ -4,7 +4,7 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     xmlns:pagesView="clr-namespace:Maui_PagoJa.Views"
-    Title="Registro"
+    Title="Registro" Loaded="ContentPage_Loaded"
     BackgroundColor="{StaticResource Gray950}"
     IconImageSource="doc_add_white.svg"
     Style="{StaticResource Key=PJ_ContentPage}">
@@ -55,7 +55,7 @@
                         <Entry
                         Margin="0"
                         FontSize="18" 
-                        HeightRequest="50"  Placeholder="Aluguel" 
+                        HeightRequest="50"
                         MaxLength="30"
                         TextColor="{StaticResource Gray200}"
                         VerticalOptions="CenterAndExpand" />
@@ -73,7 +73,7 @@
                         <Entry
                         Margin="0"
                         FontSize="18" 
-                        HeightRequest="50"  Placeholder="R$ 9999,99" 
+                        HeightRequest="50" 
                         MaxLength="30"
                         TextColor="{StaticResource Gray200}" HorizontalTextAlignment="End"
                         VerticalOptions="CenterAndExpand" />
@@ -88,17 +88,15 @@
                         Orientation="Vertical"
                         Spacing="12">
                         <Label Style="{StaticResource PJ_LabelWhite_Bold16}" Text="Dia do Vencimento" />
-                        <Picker x:Name="dayPicker" Title="Selecione o dia" >
-                            <!-- Adicionando os dias do mês como opções -->
-                            <Picker.ItemsSource>
-                                <x:Array Type="{x:Type x:Int32}">
-                                    <x:Int32>1</x:Int32>
-                                    <x:Int32>2</x:Int32>
-                                    <x:Int32>3</x:Int32>
-                                </x:Array>
-                            </Picker.ItemsSource>
+                        <Picker x:Name="pckDias" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                            <Picker.Resources>
+                                <Style TargetType="Picker">
+                                    <Setter Property="TextColor" Value="{StaticResource White}" />
+                                </Style>
+                            </Picker.Resources>
                         </Picker>
                     </StackLayout>
+
 
                     <!--  Pagamento Continuo  -->
                     <StackLayout
@@ -108,25 +106,36 @@
                         Padding="0"
                         Orientation="Horizontal"
                         Spacing="12">
-                        <CheckBox IsChecked="True" Margin="0"></CheckBox>
+                        <CheckBox IsChecked="True" x:Name="chkPgtoContinuo" CheckedChanged="chkPgtoContinuo_CheckedChanged" Margin="0"></CheckBox>
                         <Label Style="{StaticResource PJ_LabelWhite_Bold16}" Text="Pagamento Contínuo" />
-                        
                     </StackLayout>
 
-                    <!--  Dia Vencimento Boleto  -->
-                    <StackLayout
-                        Grid.Row="9"
-                        Grid.Column="1"
-                        Margin="0"
-                        Padding="0"
-                        Orientation="Vertical"
-                        Spacing="12">
-                        <Label Style="{StaticResource PJ_LabelWhite_Bold16}" Text="Dia do Vencimento" />
-                        <DatePicker x:Name="datePicker" />
+                    <!--  Mês/Ano Vencimento Boleto  -->
+                    <Grid Grid.Row="9" 
+                        Grid.Column="1" ColumnDefinitions="*, 10, *" RowDefinitions="20, *"  Margin="0" Padding="0" HorizontalOptions="FillAndExpand">
+                        <!-- Mês -->
+                        <Label x:Name="lblMes"  Grid.Column="0" Grid.Row="0" Style="{StaticResource PJ_LabelWhite_Bold16}" Text="Mês Vencimento" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" />
+                        <Picker  Grid.Column="0" Grid.Row="1" x:Name="pckMes" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                            <Picker.Resources>
+                                <Style TargetType="Picker">
+                                    <Setter Property="TextColor" Value="{StaticResource White}" />
+                                </Style>
+                            </Picker.Resources>
+                        </Picker>
+
+                        <!-- Ano -->
+                        <Label x:Name="lblAno" Grid.Column="2" Grid.Row="0" Style="{StaticResource PJ_LabelWhite_Bold16}" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Text="Ano Vencimento" />
+                        <Picker Grid.Column="2" Grid.Row="1" x:Name="pckAno" HorizontalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center">
+                            <Picker.Resources>
+                                <Style TargetType="Picker">
+                                    <Setter Property="TextColor" Value="{StaticResource White}" />
+                                </Style>
+                            </Picker.Resources>
+                        </Picker>
+                    </Grid>
 
 
-                    </StackLayout>
-                    
+
                     <!--  Salvar  -->
                     <StackLayout
                         Grid.Row="11"

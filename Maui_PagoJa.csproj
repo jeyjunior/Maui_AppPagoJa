@@ -87,4 +87,6 @@
 	  </Compile>
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMaui_PagoJaHideInfoBar="True" /></VisualStudio></ProjectExtensions>
+
 </Project>
