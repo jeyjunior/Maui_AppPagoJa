@@ -19,12 +19,21 @@
             Grid.Row="0"
             Margin="20,0,20,0"
             Padding="0"
-            ColumnDefinitions="*">
+            ColumnDefinitions="*, 50">
             <Label
                 Grid.Row="0"
                 HorizontalOptions="StartAndExpand"
                 Style="{StaticResource PJ_LabelWhite_Bold16}"
                 Text="Registrar Boleto"
+                VerticalOptions="Center" />
+            <Button
+                x:Name="btnErase"
+                Grid.Column="1"
+                Clicked="btnErase_Clicked"
+                HorizontalOptions="Center"
+                ImageSource="erase_blue.svg"
+                BackgroundColor="{StaticResource Gray950}"
+                Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
                 VerticalOptions="Center" />
         </Grid>
 
@@ -54,6 +63,7 @@
                         <Label Style="{StaticResource PJ_LabelWhite_Bold16}" Text="Nome Boleto" />
                         <Entry
                         Margin="0"
+                        x:Name="txtNomeBoleto"
                         FontSize="18" 
                         HeightRequest="50"
                         MaxLength="30"
@@ -87,13 +97,16 @@
                             FontSize="18" 
                             HeightRequest="50" 
                             MaxLength="30"
+                            x:Name="txtValorParcela"
+                            TextChanged="txtValorParcela_TextChanged"
                             HorizontalTextAlignment="End" 
                             VerticalTextAlignment="Start"
                             HorizontalOptions="FillAndExpand"
                             VerticalOptions="CenterAndExpand" 
-                            TextColor="{StaticResource Gray200}"/>
+                            TextColor="{StaticResource Gray200}"
+                            Keyboard="Numeric" />
 
-                            <!--  Dia Vencimento Boleto  -->
+                        <!--  Dia Vencimento Boleto  -->
                             <Label 
                                 Grid.Row="1" 
                                 Grid.Column="0"
@@ -200,7 +213,8 @@
                         ImageSource="save_blue.svg"
                         Style="{StaticResource PJ_ButtonPrimaryStandard}"
                         Text="Salvar"
-                        VerticalOptions="EndAndExpand" HorizontalOptions="FillAndExpand" />
+                        VerticalOptions="EndAndExpand" 
+                        HorizontalOptions="FillAndExpand" />
                 </Grid>
 
             </ScrollView>

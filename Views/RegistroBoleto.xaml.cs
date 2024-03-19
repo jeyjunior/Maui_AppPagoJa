@@ -9,10 +9,26 @@ public partial class RegistroBoleto : ContentPage
 
     private void ContentPage_Loaded(object sender, EventArgs e)
     {
-		BindDiasVencimento();
+        CarregarDropDowns();
+        HabilitarComponentesVencimento();
+        Limpar();
+    }
+
+    #region Metodos
+    private void Limpar()
+    {
+        this.txtNomeBoleto.Text = "";
+        this.txtValorParcela.Text = "";
+        this.pckDias.SelectedIndex = DateTime.Today.Day - 1; 
+        this.pckAno.SelectedIndex = 0;
+        this.pckMes.SelectedIndex = DateTime.Today.Month - 1;
+        this.chkPgtoContinuo.IsChecked = true;
+    }
+    private void CarregarDropDowns()
+    {
+        BindDiasVencimento();
         BindMesVencimento();
         BindAnoVencimento();
-        HabilitarComponentesVencimento();
     }
 
     private void BindDiasVencimento()
@@ -25,7 +41,6 @@ public partial class RegistroBoleto : ContentPage
         }
 
         this.pckDias.ItemsSource = dias;
-        this.pckDias.SelectedIndex = 19;
     }
 
     private void BindMesVencimento()
@@ -38,7 +53,6 @@ public partial class RegistroBoleto : ContentPage
         }
 
         this.pckMes.ItemsSource = mes;
-        this.pckMes.SelectedIndex = DateTime.Today.Month - 1;
     }
 
     private void BindAnoVencimento()
@@ -53,12 +67,7 @@ public partial class RegistroBoleto : ContentPage
         }
 
         this.pckAno.ItemsSource = ano;
-        this.pckAno.SelectedIndex = 0;
-    }
 
-    private void chkPgtoContinuo_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
-        HabilitarComponentesVencimento();
     }
 
     private void HabilitarComponentesVencimento()
@@ -69,4 +78,24 @@ public partial class RegistroBoleto : ContentPage
         this.lblAno.IsEnabled = !this.chkPgtoContinuo.IsChecked;
         this.pckAno.IsEnabled = !this.chkPgtoContinuo.IsChecked;
     }
+
+    #endregion
+
+    #region Eventos
+    private void chkPgtoContinuo_CheckedChanged(object sender, CheckedChangedEventArgs e)
+    {
+        HabilitarComponentesVencimento();
+    }
+    private void txtValorParcela_TextChanged(object sender, TextChangedEventArgs e)
+    {
+
+        if (((Entry)sender).Text != "")
+            return;
+    }
+    private void btnErase_Clicked(object sender, EventArgs e)
+    {
+        Limpar();
+    }
+    #endregion
+
 }

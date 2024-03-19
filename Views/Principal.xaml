@@ -33,7 +33,8 @@
                 Grid.Column="1"
                 Clicked="btnOptions_Clicked"
                 HorizontalOptions="Center"
-                ImageSource="options_blue.svg"
+                ImageSource="options_blue.svg" 
+                BackgroundColor="{StaticResource Gray950}"
                 Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
                 VerticalOptions="Center" />
             <Button
@@ -41,6 +42,7 @@
                 Grid.Column="2"
                 HorizontalOptions="Center"
                 ImageSource="search_blue.svg"
+                BackgroundColor="{StaticResource Gray950}"
                 Style="{StaticResource Key=PJ_ButtonPrimarySmall}"
                 VerticalOptions="Center" />
         </Grid>
